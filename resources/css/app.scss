@@ -1,0 +1,193 @@
+
+$font-stack: 'Poppins', sans-serif;
+$font-regular: 400;
+$font-semi: 600;
+$font-bold: 700;
+$primary-color: #474787;
+$secondary-color: #2B2B52;
+
+@font-face{
+    font-family: "Poppins";
+    src : url('../public/font/Poppins-regular.ttf') format('truetype') 
+}
+
+*{
+    font-family: $font-stack;
+}
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+a{
+    text-decoration: none;
+    color: white
+}
+
+li{
+    list-style-type: none;
+}
+
+.container{
+    max-width: 20rem;
+    margin: 0 auto; 
+}
+
+header {
+    background-image: url("/public/images/bandeau_header.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 300px;
+    width: 100%;
+    padding: 18px;
+    height: 130px;
+}
+
+/*==========================================
+                            menu
+===========================================*/
+nav{
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding : 16px 18px;
+    justify-content: space-between;
+    .logo{
+        display: flex;
+        flex-direction: row;
+        gap:16px;
+        align-items:center;
+    }
+    &.container-nav{
+        border-radius: 18px; 
+    }
+    &.container-open{
+        border-radius: 18px 18px 0 0; 
+    }
+}
+
+.nav{
+    display: none;
+    .active{
+        display: block;
+    }
+}
+
+ul.nav-open{
+    background-color: $primary-color;
+    color : white;
+    border-radius : 0 0 18px 18px;
+    flex-direction: column;
+    display: flex;
+    gap:18px;
+    padding: 16px 18px;
+}
+
+/*menu burger*/
+.hamburger {
+    cursor: pointer;
+}
+
+.hamburger input {
+    display: none;
+}
+
+.hamburger svg {
+    height: 3em;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+    stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+    transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+}
+
+
+/*==========================================
+                            Accueil
+===========================================*/
+
+.purple-card
+{
+    background-color: $primary-color;
+    color: white;
+    border-radius: 18px;
+    padding:32px;
+    &-title{
+        background-color: $secondary-color;
+        border-radius: 18px 18px 0 0;
+        color: white;
+        width: 25%;
+        p{
+            margin: 0;
+        }
+    }
+}
+
+
+
+
+/*==========================================
+                            responsive
+===========================================*/
+@media screen and (min-width: 768px) {
+    .container {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    nav{
+        padding: 16px 32px;
+    }
+}
+  
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 56rem;
+        margin: 0 auto;
+    }
+    .hamburger{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        flex-direction: row;
+        gap:32px;
+    }
+}
+  
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 72rem;
+        margin: 0 auto;
+    }
+}
+  
+@media screen and (min-width: 1536px) {
+    .container {
+    max-width: 80rem;
+    margin: 0 auto;
+    }
+}
+

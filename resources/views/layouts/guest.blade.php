@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body x-data="{open : false}">
+        <header>
+            <nav :class="{'container container-nav': !open, 'container container-open' : open}">
+                <a href="{{route('accueil')}}" class="logo">
+                    <img src="https://placehold.co/38x38">
+                    <p class="main-title">ArcheryTrack</p>
+                </a>
+                <ul class="nav" id="menu">
+                    <li><a href="{{route('accueil')}}">Accueil</a></li>
+                    <li>Articles</li>
+                    <li>Contact</li>
+                    {{-- todo if connected -> Profil --}}
+                    <li>Connexion / inscription</li>
+                </ul>
+                <label class="hamburger" id="menuToggle">
+                    <input type="checkbox" @click="open = ! open">
+                    <svg viewBox="0 0 32 32">
+                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="line" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </nav>
+            <ul :class="{'nav': !open, 'nav-open' : open}" class="container" id="menu" x-show="open">
+                <li><a href="{{route('accueil')}}">Accueil</a></li>
+                <li>Articles</li>
+                <li>Contact</li>
+                {{-- todo if connected -> Profil --}}
+                <li>Connexion / inscription</li>
+            </ul>
+        </header>
+        
+        {{ $slot }}
+    </body>
+</html>
