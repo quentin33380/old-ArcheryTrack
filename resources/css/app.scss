@@ -5,10 +5,16 @@ $font-semi: 600;
 $font-bold: 700;
 $primary-color: #474787;
 $secondary-color: #2B2B52;
+/*  variable mediaquery  */
+$sm: 640px;
+$md : 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
 
 @font-face{
     font-family: "Poppins";
-    src : url('../public/font/Poppins-regular.ttf') format('truetype') 
+    src : url('../public/font/Poppins-regular.ttf') format('truetype')
 }
 
 *{
@@ -31,8 +37,23 @@ li{
 }
 
 .container{
-    max-width: 20rem;
-    margin: 0 auto; 
+    width: 100%;
+    margin: 0 auto;
+    @media screen and (min-width : $sm) {
+        max-width: 640px;
+    }
+    @media screen and (min-width : $md) {
+        max-width: 768px;
+    }
+    @media screen and (min-width : $lg) {
+        max-width: 1024px;
+    }
+    @media screen and (min-width : $xl) {
+        max-width: 1280px;
+    }
+    @media screen and (min-width : $xxl) {
+        max-width: 1536px;
+    }
 }
 
 header {
@@ -41,10 +62,22 @@ header {
     background-size: cover;
     max-height: 300px;
     width: 100%;
-    padding: 18px;
+    padding: 0;
+    @media screen and (min-width : $sm) {
+        padding: 18px 0;
+    }
     height: 130px;
 }
 
+main
+{
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+section{
+    padding: 32px 0;
+}
 /*==========================================
                             menu
 ===========================================*/
@@ -53,27 +86,38 @@ nav{
     display: flex;
     flex-direction: row;
     color: white;
-    padding : 16px 18px;
+    padding : 16px 0px;
     justify-content: space-between;
     .logo{
         display: flex;
         flex-direction: row;
         gap:16px;
         align-items:center;
+        padding-left: 18px;
     }
     &.container-nav{
-        border-radius: 18px; 
+        border-radius: 0px 0px 18px 18px;
+        @media screen and (min-width : $sm) {
+            border-radius: 18px;
+        }
     }
     &.container-open{
-        border-radius: 18px 18px 0 0; 
+        border-radius: 0;
+        @media screen and (min-width : $sm) {
+            border-radius: 18px 18px 0 0;
+        }
     }
 }
 
-.nav{
+.nav-ul{
     display: none;
-    .active{
-        display: block;
+    @media screen and (min-width : $lg) {
+        padding-right: 18px;
     }
+}
+
+.active{
+    display: block;
 }
 
 ul.nav-open{
@@ -84,11 +128,15 @@ ul.nav-open{
     display: flex;
     gap:18px;
     padding: 16px 18px;
+    margin: 0;
+    position: relative;
+    z-index: 10;
 }
 
 /*menu burger*/
 .hamburger {
     cursor: pointer;
+    padding-right: 16px;
 }
 
 .hamburger input {
@@ -127,67 +175,156 @@ ul.nav-open{
 /*==========================================
                             Accueil
 ===========================================*/
+.card{
+    display: flex;
+    flex-direction: column;
+    .left{
+        margin: 0;
+        align-self: center;
+        @media screen and (min-width: $md){
+            width: 45%;
+            align-self: start;
+            margin-left: 25px;
+        }
+    }
+    .right{
+        margin: 0;
+        align-self: center;
+        @media screen and (min-width: $md){
+            width: 45%;
+            align-self: end;
+            margin-right: 25px;
+        }
+    }
+}
 
+.card{
+    @media screen and (min-width: $lg){
+        width: 65%;
+    }
+}
+
+.container-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    img{
+        border-radius: 18px;
+    }
+}
+/*============
+        compagnon
+============*/
 .purple-card
 {
     background-color: $primary-color;
     color: white;
     border-radius: 18px;
-    padding:32px;
+    padding:16px;
     &-title{
         background-color: $secondary-color;
         border-radius: 18px 18px 0 0;
         color: white;
-        width: 25%;
-        p{
-            margin: 0;
+        width: 85%;
+        @media screen and (min-width: $md){
+            width: 50%;
         }
+        @media screen and (min-width: $lg){
+            width: 45%;
+        }
+        @media screen and (min-width: $xl){
+            width: 35%;
+        }
+        p{
+            text-align: center;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem;
+        }
+    }
+    @media screen and (min-width: $md){
+        padding:32px;
     }
 }
 
 
 
+
+.compagnon-img, .progress-img{
+    display: none;
+    @media screen and (min-width: $lg){
+        display: block;
+        width: 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+/*============
+        progress
+============*/
+
+#progress {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url('/public/images/fond-progress.png');
+        background-size: cover;
+        filter: blur(12px); // Ajustez la valeur du flou selon vos besoins
+        z-index: -1;
+    }
+}
+
+/*============
+        carrousel
+============*/
+.carrousel-card{
+    background-color: #D9D9D9;
+    padding: 16px;
+    border-radius: 18px;
+    @media screen and (min-width: $md){
+        padding: 32px;
+    }
+    .carrousel-text{
+        background-color: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        color: $primary-color;
+        @media screen and (min-width: $md){
+            padding: 32px;
+        }
+        p:first-of-type{
+            margin-top: 0;
+        }
+        p:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+#carousel-article .card{
+    width: 100%;
+}
 
 /*==========================================
                             responsive
 ===========================================*/
-@media screen and (min-width: 768px) {
-    .container {
-      max-width: 42rem;
-      margin: 0 auto;
-    }
 
-    nav{
-        padding: 16px 32px;
-    }
-}
-  
 @media screen and (min-width: 1024px) {
-    .container {
-        max-width: 56rem;
-        margin: 0 auto;
-    }
     .hamburger{
         display: none;
     }
-    .nav{
+    .nav-ul{
         display: flex;
         flex-direction: row;
         gap:32px;
-    }
-}
-  
-@media screen and (min-width: 1280px) {
-    .container {
-        max-width: 72rem;
-        margin: 0 auto;
-    }
-}
-  
-@media screen and (min-width: 1536px) {
-    .container {
-    max-width: 80rem;
-    margin: 0 auto;
     }
 }
 

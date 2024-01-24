@@ -21,6 +21,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@splidejs/splide": "^4.1.4",
         "normalize.css": "^8.0.1"
     }
 }

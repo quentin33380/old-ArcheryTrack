@@ -8,39 +8,47 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/splide.js'])
     </head>
     <body x-data="{open : false}">
         <header>
-            <nav :class="{'container container-nav': !open, 'container container-open' : open}">
-                <a href="{{route('accueil')}}" class="logo">
-                    <img src="https://placehold.co/38x38">
-                    <p class="main-title">ArcheryTrack</p>
-                </a>
-                <ul class="nav" id="menu">
+            <div class="container">
+                <nav :class="{'container-nav': !open, 'container-open' : open}">
+                    <a href="{{route('accueil')}}" class="logo">
+                        <img src="https://placehold.co/38x38">
+                        <p class="main-title">ArcheryTrack</p>
+                    </a>
+                    <ul class="nav-ul" id="menu">
+                        <li><a href="{{route('accueil')}}">Accueil</a></li>
+                        <li>Articles</li>
+                        <li>Contact</li>
+                        {{-- todo if connected -> Profil --}}
+                        <li>Connexion / inscription</li>
+                    </ul>
+                    <label class="hamburger" id="menuToggle">
+                        <input type="checkbox" x-on:click="open = ! open">
+                        <svg viewBox="0 0 32 32">
+                            <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                            <path class="line" d="M7 16 27 16"></path>
+                        </svg>
+                    </label>
+                </nav>
+                <ul :class="{'nav': !open, 'nav-open' : open}" id="menu" x-show="open" x-cloak
+                    x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-75"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95">
                     <li><a href="{{route('accueil')}}">Accueil</a></li>
                     <li>Articles</li>
                     <li>Contact</li>
                     {{-- todo if connected -> Profil --}}
                     <li>Connexion / inscription</li>
                 </ul>
-                <label class="hamburger" id="menuToggle">
-                    <input type="checkbox" @click="open = ! open">
-                    <svg viewBox="0 0 32 32">
-                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                        <path class="line" d="M7 16 27 16"></path>
-                    </svg>
-                </label>
-            </nav>
-            <ul :class="{'nav': !open, 'nav-open' : open}" class="container" id="menu" x-show="open">
-                <li><a href="{{route('accueil')}}">Accueil</a></li>
-                <li>Articles</li>
-                <li>Contact</li>
-                {{-- todo if connected -> Profil --}}
-                <li>Connexion / inscription</li>
-            </ul>
+            </div>
         </header>
-        
+
         {{ $slot }}
     </body>
 </html>
