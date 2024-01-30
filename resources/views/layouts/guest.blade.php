@@ -20,10 +20,10 @@
                     </a>
                     <ul class="nav-ul" id="menu">
                         <li><a href="{{route('accueil')}}">Accueil</a></li>
-                        <li>Articles</li>
-                        <li>Contact</li>
+                        <li><a href="javascript:void(0)">Articles</a></li>
+                        <li><a href="{{route('contact')}}">Contact</a></li>
                         {{-- todo if connected -> Profil --}}
-                        <li>Connexion / inscription</li>
+                        <li><a href="javascript:void(0)">Connexion / inscription</a></li>
                     </ul>
                     <label class="hamburger" id="menuToggle">
                         <input type="checkbox" x-on:click="open = ! open">
@@ -41,14 +41,16 @@
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95">
                     <li><a href="{{route('accueil')}}">Accueil</a></li>
-                    <li>Articles</li>
-                    <li>Contact</li>
+                    <li><a href="javascript:void(0)">Articles</a></li>
+                    <li><a href="{{route('contact')}}">Contact</a></li>
                     {{-- todo if connected -> Profil --}}
-                    <li>Connexion / inscription</li>
+                    <li><a href="javascript:void(0)">Connexion / inscription</a></li>
                 </ul>
             </div>
         </header>
 
         {{ $slot }}
+
+        <x-footer/>
     </body>
 </html>

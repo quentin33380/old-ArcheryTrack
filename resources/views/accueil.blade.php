@@ -4,7 +4,7 @@
             <div class="container-card">
                 <div class="card">
                     <div class="purple-card-title left">
-                        <p>Votre Compagnon de Tir à l'Arc</p>
+                        <h2>Votre Compagnon de Tir à l'Arc</h2>
                     </div>
                     <div class="purple-card">
                         <p>ArcheryTrack est votre allié incontournable pour améliorer vos compétences en tir à l'arc. Notre plateforme a été spécialement conçue pour les archers de tous niveaux, qu'ils soient débutants, intermédiaires ou experts.</p>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="card">
                     <div class="purple-card-title right">
-                        <p>Suivez Votre Progression 🏹 </p>
+                        <h2>Suivez Votre Progression 🏹 </h2>
                     </div>
                     <div class="purple-card">
                         <p>Avec ArcheryTrack, vous pouvez enregistrer et suivre tous les détails essentiels de votre équipement, des réglages de votre arc aux caractéristiques de vos flèches. Vous pouvez également consigner vos scores, votre progression au fil du temps et vos objectifs personnels. Plus jamais vous ne vous sentirez seul dans votre parcours de tir à l'arc.</p>
@@ -32,26 +32,31 @@
             </div>
         </section>
 
-        <section id="carousel-article">
-            <div class="container">
+        <x-slider>
+            @for ($i = 0; $i<10; $i++)
+                <li class="purple-card splide__slide">
+                    <img src="{{asset('images/placehold-carousel.png')}}" alt="">
+                    <div class="carousel-card-text">
+                        <h3>Lorem, ipsum.</h3>
+                        <p>
+                            Pellentesque in felis eu nunc volutpat sagittis. Suspendisse pulvinar
+                            dictum nisl et accumsan. Morbi venenatis scelerisque mattis.
+                        </p>
+                        <a href="javascript:void(0)">Voir l'article</a>
+                    </div>
+                </li>
+            @endfor
+        </x-slider>
+
+        <section id="starting">
+            <div class="container-card container">
                 <div class="card">
                     <div class="purple-card-title left">
-                        <p>Ressources et Conseils 📚</p>
+                        <h2>Prêt à Commencer ? 🔥</h2>
                     </div>
-                    <div class="carrousel-card">
-                        <div class="carrousel-text">
-                            <p>Découvrez notre bibliothèque d'articles et de ressources pour vous aider à perfectionner votre technique. </p>
-                            <p>De l'apprentissage des bases du tir à l'arc à la maîtrise des gestes avancés, nous avons tout ce dont vous avez besoin pour réussir.</p>
-                        </div>
-                        <section class="splide" aria-label="Splide Basic HTML Example">
-                            <div class="splide__track">
-                                <ul class="splide__list">
-                                    @for ($i=0; $i < 20; $i++)
-                                        <li class="splide__slide">Slide {{$i}}</li>
-                                    @endfor
-                                </ul>
-                            </div>
-                        </section>
+                    <div class="purple-card">
+                        <p>Inscrivez-vous gratuitement dès aujourd'hui et découvrez comment ArcheryTrack peut vous aider à devenir un archer plus compétent et confiant. Le tir à l'arc n'a jamais été aussi gratifiant.</p>
+                        <a href="javascript:void(0)">Connexion / Inscription</a>
                     </div>
                 </div>
             </div>
