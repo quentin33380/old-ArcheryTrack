@@ -1,52 +1,51 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+    <section id="register" class="container">
+        <div class="card-register">
+            <h2>Bienvenue sur l’espace connexion/inscription</h2>
+            <p>Ici vous pouvez vous connecter ou vous inscrire pour avoir acces a votre espace personnel pour&nbsp;:</p>
+            <ul>
+                <li>Suivre votre progression </li>
+                <li>Définir des objectifs personnels</li>
+                <li>Suivre vos réglages</li>
+                <li>Gestion de feuilles de marques</li>
+                <li>Avoir un cloud pour vos photos ou vos feuilles de marques</li>
+            </ul>
         </div>
+    </section>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <section id="formulaires" class="container">
+        <form method="POST" action="">
+            @csrf
+            <div class="formulaires-card">
+                <div class="purple-card-title left">
+                    <h2>Connexion</h2>
+                </div>
+                <div class="purple-card">
+                    <div class="form-group">
+                        <label for="mail">E-mail de connexion</label>
+                        <input type="text" name="mail" id="mail">
+                        <x-input-error :messages="$errors->get('mail')" class="mt-2" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="text" name="password" id="password">
+                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="separator-y"></div>
+        <form method="POST" action="">
+            @csrf
+            <div class="formulaires-card">
+                <div class="purple-card-title right">
+                    <h2>Insription</h2>
+                </div>
+                <div class="purple-card">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
+                </div>
+            </div>
+        </form>
+    </section>
 </x-guest-layout>

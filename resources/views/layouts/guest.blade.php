@@ -15,7 +15,7 @@
             <div class="container">
                 <nav :class="{'container-nav': !open, 'container-open' : open}">
                     <a href="{{route('accueil')}}" class="logo">
-                        <img src="https://placehold.co/38x38">
+                        <img src="{{asset('images/logo.svg')}}">
                         <p class="main-title">ArcheryTrack</p>
                     </a>
                     <ul class="nav-ul" id="menu">
@@ -23,7 +23,7 @@
                         <li><a href="javascript:void(0)">Articles</a></li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         {{-- todo if connected -> Profil --}}
-                        <li><a href="javascript:void(0)">Connexion / inscription</a></li>
+                        <li><a href="{{route('register')}}">Connexion / inscription</a></li>
                     </ul>
                     <label class="hamburger" id="menuToggle">
                         <input type="checkbox" x-on:click="open = ! open">
@@ -44,7 +44,7 @@
                     <li><a href="javascript:void(0)">Articles</a></li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     {{-- todo if connected -> Profil --}}
-                    <li><a href="javascript:void(0)">Connexion / inscription</a></li>
+                    <li><a href="{{route('register')}}">Connexion / inscription</a></li>
                 </ul>
             </div>
         </header>

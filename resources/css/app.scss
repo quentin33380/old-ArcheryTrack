@@ -1,4 +1,4 @@
-$font-stack: 'Poppins', sans-serif;
+$font-stack: 'Poppins';
 $font-regular: 400;
 $font-semi: 600;
 $font-bold: 700;
@@ -13,7 +13,7 @@ $xxl: 1536px;
 
 @font-face{
     font-family: "Poppins";
-    src : url('../public/font/Poppins-regular.ttf') format('truetype')
+    src : url('../../public/font/Poppins-regular.ttf') format('truetype')
 }
 
 *{
@@ -28,6 +28,7 @@ body{
     box-sizing:border-box;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 a{
@@ -92,6 +93,22 @@ footer{
     background-color: $primary-color;
     height: 100px;
 }
+
+.separator-y{
+    @media screen and (min-width : $lg) {
+        background-color:#dedede;
+        width: 2px;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+
+input{
+    padding:5px;
+    border-radius: 8px;
+    border: none;
+}
+
 /*==========================================
                             menu
 ===========================================*/
@@ -99,6 +116,7 @@ nav{
     background-color: $primary-color;
     display: flex;
     flex-direction: row;
+    align-items: center;
     color: white;
     padding : 16px 0px;
     justify-content: space-between;
@@ -148,10 +166,13 @@ ul{
         position: relative;
         width: 100%;
         z-index: 10;
+
         li:hover{
             background-color: #fff;
         }
         a{
+            transition: ease-in-out;
+            transition-duration: 300ms;
             display: block;
             width: 100%;
             padding: 12px 18px;
@@ -362,7 +383,7 @@ ul{
                 border: solid 2px white;
                 align-self: end;
                 background-color: $primary-color;
-                padding: 8px 12px;
+                padding: 8px 20px;
                 border-radius: 8px;
                 transition: all 115ms;
                 &:hover {
@@ -423,7 +444,6 @@ ul{
     .card{
         width: 100%;
         .purple-card{
-
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -431,7 +451,7 @@ ul{
                 border: solid 2px $primary-color;
                 align-self: end;
                 background-color: white;
-                padding: 8px 12px;
+                padding: 8px 20px;
                 border-radius: 8px;
                 transition: all 115ms;
                 color: $primary-color;
@@ -449,7 +469,156 @@ ul{
 /*==========================================
                             contact
 ===========================================*/
+#contact .card{
+    width: 100%;
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            input, textarea{
+                padding: 8px;
+                border-radius: 8px;
+                border: none;
+            }
+        }
+        @media screen and (min-width : $md) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 32px;
+            .input-group:nth-child(3),
+            .input-group:nth-child(4){
+                grid-column: span 2;
+            }
+        }
+    }
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        button{
+            align-self: end;
+            margin-top: 20px;
+            border: solid 2px $primary-color;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            transition: all 115ms;
+            color: $primary-color;
+            &:hover {
+                background-color: $primary-color;
+                border: solid 2px white;
+                color: white;
+                transform: scale(1.05);
+            }
+        }
+    }
+}
 
+
+/*==========================================
+                            responsive
+===========================================*/
+#register{
+    .card-register{
+        background-color: #D9D9D9;
+        border-radius: 18px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        color: $primary-color;
+        @media screen and (min-width: $md) {
+            padding: 32px;
+        }
+        h2{
+            text-align: center;
+            font-weight: $font-semi;
+        }
+        p{
+            text-align: center;
+        }
+        ul{
+            width: 87%;
+            align-self: center;
+            @media screen and (min-width: $sm) {
+                width: 90%;
+            }
+            @media screen and (min-width: $md) {
+                width: 85%;
+            }
+            @media screen and (min-width: $lg) {
+                width: 77%;
+            }
+            @media screen and (min-width: $xl) {
+                width: 60%;
+            }
+            @media screen and (min-width: $xxl) {
+                width: 50%;
+            }
+            li{
+                text-align: center;
+                margin: 5px 0;
+                text-decoration: underline;
+                @media screen and (min-width: $md) {
+                    text-decoration: none;
+                    list-style-type: disc;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+#formulaires{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    @media screen and (min-width: $lg) {
+        display: grid;
+        grid-template-columns: 1fr 2px 1fr;
+        gap: 32px;
+    }
+    .formulaires-card{
+        display: flex;
+        flex-direction: column;
+        .left{
+            margin: 0;
+            align-self: center;
+            @media screen and (min-width: $md){
+                width: 45%;
+                align-self: start;
+                margin-left: 25px;
+            }
+        }
+        .right{
+            margin: 0;
+            align-self: center;
+            @media screen and (min-width: $md){
+                width: 45%;
+                align-self: end;
+                margin-right: 25px;
+            }
+        }
+        .purple-card{
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            .form-group{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                input{
+                    width: 80%;
+                    @media screen and (min-width:$lg) {
+                        width: 75%;
+                    }
+                }
+            }
+        }
+    }
+}
 
 /*==========================================
                             responsive

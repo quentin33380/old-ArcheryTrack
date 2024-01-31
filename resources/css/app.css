@@ -1,10 +1,10 @@
 /*  variable mediaquery  */
 @font-face {
   font-family: "Poppins";
-  src: url("../public/font/Poppins-regular.ttf") format("truetype");
+  src: url("../../public/font/Poppins-regular.ttf") format("truetype");
 }
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   font-weight: 500;
 }
 
@@ -15,6 +15,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 a {
@@ -93,6 +94,21 @@ footer {
   height: 100px;
 }
 
+@media screen and (min-width: 1024px) {
+  .separator-y {
+    background-color: #dedede;
+    width: 2px;
+    height: 100%;
+    border-radius: 8px;
+  }
+}
+
+input {
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
 /*==========================================
                             menu
 ===========================================*/
@@ -100,6 +116,7 @@ nav {
   background-color: #474787;
   display: flex;
   flex-direction: row;
+  align-items: center;
   color: white;
   padding: 16px 0px;
   justify-content: space-between;
@@ -160,6 +177,8 @@ ul.nav-open li:hover {
   background-color: #fff;
 }
 ul.nav-open a {
+  transition: ease-in-out;
+  transition-duration: 300ms;
   display: block;
   width: 100%;
   padding: 12px 18px;
@@ -383,7 +402,7 @@ ul.nav-open a:hover {
   border: solid 2px white;
   align-self: end;
   background-color: #474787;
-  padding: 8px 12px;
+  padding: 8px 20px;
   border-radius: 8px;
   transition: all 115ms;
 }
@@ -443,7 +462,7 @@ ul.nav-open a:hover {
   border: solid 2px #474787;
   align-self: end;
   background-color: white;
-  padding: 8px 12px;
+  padding: 8px 20px;
   border-radius: 8px;
   transition: all 115ms;
   color: #474787;
@@ -458,106 +477,175 @@ ul.nav-open a:hover {
 /*==========================================
                             contact
 ===========================================*/
-.form-container .form-group {
-  background-color: red;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-gap: 20px;
-  padding-bottom: 16px;
+#contact .card {
+  width: 100%;
 }
-.form-container .form-group .input-group {
+#contact .card .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 12px;
 }
-.form-container .form-group .input-group input {
-  background-color: blue;
+#contact .card .form-group .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+#contact .card .form-group .input-group input, #contact .card .form-group .input-group textarea {
+  padding: 8px;
   border-radius: 8px;
   border: none;
-  padding: 8px;
-}
-.form-container .form-group .input-group:nth-child(2n) {
-  grid-column: span 1;
-}
-.form-container .form-group .input-group:last-child {
-  grid-column: span 2;
-}
-.form-container .form-group .input-group textarea {
-  border-radius: 8px;
-  border: none;
-  padding: 8px;
-}
-
-.card.--purple {
-  background-color: #474787;
-  color: white;
-  border-radius: 18px;
-  padding: 16px;
-}
-.card.--purple .card-title {
-  background-color: #2B2B52;
-  border-radius: 18px 18px 0 0;
-  color: white;
-  width: 85%;
 }
 @media screen and (min-width: 768px) {
-  .card.--purple .card-title {
-    width: 50%;
+  #contact .card .form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 32px;
+  }
+  #contact .card .form-group .input-group:nth-child(3),
+  #contact .card .form-group .input-group:nth-child(4) {
+    grid-column: span 2;
+  }
+}
+#contact .card .form-container {
+  display: flex;
+  flex-direction: column;
+}
+#contact .card .form-container button {
+  align-self: end;
+  margin-top: 20px;
+  border: solid 2px #474787;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 115ms;
+  color: #474787;
+}
+#contact .card .form-container button:hover {
+  background-color: #474787;
+  border: solid 2px white;
+  color: white;
+  transform: scale(1.05);
+}
+
+/*==========================================
+                            responsive
+===========================================*/
+#register .card-register {
+  background-color: #D9D9D9;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  color: #474787;
+}
+@media screen and (min-width: 768px) {
+  #register .card-register {
+    padding: 32px;
+  }
+}
+#register .card-register h2 {
+  text-align: center;
+  font-weight: 600;
+}
+#register .card-register p {
+  text-align: center;
+}
+#register .card-register ul {
+  width: 87%;
+  align-self: center;
+}
+@media screen and (min-width: 640px) {
+  #register .card-register ul {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 768px) {
+  #register .card-register ul {
+    width: 85%;
   }
 }
 @media screen and (min-width: 1024px) {
-  .card.--purple .card-title {
-    width: 45%;
+  #register .card-register ul {
+    width: 77%;
   }
 }
 @media screen and (min-width: 1280px) {
-  .card.--purple .card-title {
-    width: 35%;
+  #register .card-register ul {
+    width: 60%;
   }
 }
-.card.--purple .card-title h2 {
+@media screen and (min-width: 1536px) {
+  #register .card-register ul {
+    width: 50%;
+  }
+}
+#register .card-register ul li {
   text-align: center;
-  margin: 0 auto;
-  padding: 0.5rem 1.5rem;
-  font-weight: 600;
-  font-size: 1rem;
-}
-.card.--purple .card-group {
-  background-color: red;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-gap: 20px;
-  padding-bottom: 16px;
-}
-.card.--purple .card-group .input-group-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px 16px;
-}
-.card.--purple .card-group .input-group-group input {
-  background-color: blue;
-  border-radius: 8px;
-  border: none;
-  padding: 8px;
-}
-.card.--purple .card-group .input-group-group:nth-child(n) {
-  grid-column: span 1;
-}
-.card.--purple .card-group .input-group-group:last-child {
-  grid-column: span 2;
-}
-.card.--purple .card-group .input-group-group.--area textarea {
-  border-radius: 8px;
-  border: none;
-  padding: 8px;
+  margin: 5px 0;
+  text-decoration: underline;
 }
 @media screen and (min-width: 768px) {
-  .card.--purple {
-    padding: 32px;
+  #register .card-register ul li {
+    text-decoration: none;
+    list-style-type: disc;
+    text-align: left;
+  }
+}
+
+#formulaires {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media screen and (min-width: 1024px) {
+  #formulaires {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    gap: 32px;
+  }
+}
+#formulaires .formulaires-card {
+  display: flex;
+  flex-direction: column;
+}
+#formulaires .formulaires-card .left {
+  margin: 0;
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  #formulaires .formulaires-card .left {
+    width: 45%;
+    align-self: start;
+    margin-left: 25px;
+  }
+}
+#formulaires .formulaires-card .right {
+  margin: 0;
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  #formulaires .formulaires-card .right {
+    width: 45%;
+    align-self: end;
+    margin-right: 25px;
+  }
+}
+#formulaires .formulaires-card .purple-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+#formulaires .formulaires-card .purple-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#formulaires .formulaires-card .purple-card .form-group input {
+  width: 80%;
+}
+@media screen and (min-width: 1024px) {
+  #formulaires .formulaires-card .purple-card .form-group input {
+    width: 75%;
   }
 }
 
