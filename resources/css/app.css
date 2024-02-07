@@ -103,6 +103,13 @@ footer {
   }
 }
 
+.separator-x {
+  background-color: #dedede;
+  height: 2px;
+  width: 100%;
+  border-radius: 8px;
+}
+
 input {
   padding: 5px;
   border-radius: 8px;
@@ -633,6 +640,12 @@ ul.nav-open a:hover {
 #formulaires .formulaires-card .purple-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+#formulaires .formulaires-card .purple-card > div {
+  display: flex;
+  flex-direction: column;
   gap: 18px;
 }
 #formulaires .formulaires-card .purple-card .form-group {
@@ -647,6 +660,53 @@ ul.nav-open a:hover {
   #formulaires .formulaires-card .purple-card .form-group input {
     width: 75%;
   }
+}
+#formulaires .formulaires-card .purple-card a {
+  text-decoration: underline;
+}
+#formulaires .formulaires-card .purple-card a:hover {
+  color: #a2a2f8;
+}
+#formulaires .formulaires-card .purple-card button {
+  align-self: start;
+  margin-top: 20px;
+  border: solid 2px #474787;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 115ms;
+  color: #474787;
+  font-weight: 600;
+  border: 2px solid #2B2B52;
+}
+#formulaires .formulaires-card .purple-card button:hover {
+  background-color: #474787;
+  border: solid 2px white;
+  color: white;
+  transform: scale(1.05);
+}
+@media screen and (min-width: 1024px) {
+  #formulaires .formulaires-card .purple-card {
+    min-height: 400px;
+  }
+}
+
+/*==========================================
+                            article
+===========================================*/
+.filtre-mobile h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.filtre-mobile .chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filtre-mobile .chevron svg {
+  width: 20px;
 }
 
 /*==========================================

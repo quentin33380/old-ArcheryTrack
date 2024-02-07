@@ -22,16 +22,22 @@
                     <h2>Connexion</h2>
                 </div>
                 <div class="purple-card">
-                    <div class="form-group">
-                        <label for="mail">E-mail de connexion</label>
-                        <input type="text" name="mail" id="mail">
-                        <x-input-error :messages="$errors->get('mail')" class="mt-2" />
+                    <div>
+                        <div class="form-group">
+                            <label for="mail">E-mail de connexion</label>
+                            <input type="email" name="mail" id="mail">
+                            <x-input-error :messages="$errors->get('mail')" class="mt-2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" id="password">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                        <div>
+                            <a href="#todo">Mot de passe oublié ?</a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="text" name="password" id="password">
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
+                    <button type="submit" class="button-connexion">Connexion</button>
                 </div>
             </div>
         </form>
@@ -43,7 +49,29 @@
                     <h2>Insription</h2>
                 </div>
                 <div class="purple-card">
-
+                    <div>
+                        <div class="form-group">
+                            <label for="name">Nom d’utilisateur</label>
+                            <input type="text" name="name" id="name">
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="mail">E-mail</label>
+                            <input type="email" name="mail" id="mail">
+                            <x-input-error :messages="$errors->get('mail')" class="mt-2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" id="password">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmation du mot de passe</label>
+                            <input type="password" name="confirm-password" id="confirm-password">
+                            <x-input-error :messages="$errors->get('confirm-password')" class="mt-2" />
+                        </div>
+                    </div>
+                    <button type="submit" class="button-inscription">Inscription</button>
                 </div>
             </div>
         </form>

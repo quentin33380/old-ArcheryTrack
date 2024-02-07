@@ -20,7 +20,7 @@
                     </a>
                     <ul class="nav-ul" id="menu">
                         <li><a href="{{route('accueil')}}">Accueil</a></li>
-                        <li><a href="javascript:void(0)">Articles</a></li>
+                        <li><a href="{{route('article')}}">Articles</a></li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         {{-- todo if connected -> Profil --}}
                         <li><a href="{{route('register')}}">Connexion / inscription</a></li>
@@ -41,7 +41,7 @@
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95">
                     <li><a href="{{route('accueil')}}">Accueil</a></li>
-                    <li><a href="javascript:void(0)">Articles</a></li>
+                    <li><a href="{{route('article')}}">Articles</a></li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     {{-- todo if connected -> Profil --}}
                     <li><a href="{{route('register')}}">Connexion / inscription</a></li>

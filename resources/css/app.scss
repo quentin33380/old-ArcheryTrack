@@ -4,6 +4,7 @@ $font-semi: 600;
 $font-bold: 700;
 $primary-color: #474787;
 $secondary-color: #2B2B52;
+$tiertiary-color: #a2a2f8;
 /*  variable mediaquery  */
 $sm: 640px;
 $md : 768px;
@@ -101,6 +102,12 @@ footer{
         height: 100%;
         border-radius: 8px;
     }
+}
+.separator-x{
+    background-color:#dedede;
+    height: 2px;
+    width: 100%;
+    border-radius: 8px;
 }
 
 input{
@@ -604,7 +611,13 @@ ul{
         .purple-card{
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             gap: 18px;
+            &>div {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+            }
             .form-group{
                 display: flex;
                 flex-direction: column;
@@ -616,10 +629,56 @@ ul{
                     }
                 }
             }
+            a{
+                &:hover{
+                    color: $tiertiary-color;
+                }
+                text-decoration: underline;
+            }
+            button{
+                align-self: start;
+                margin-top: 20px;
+                border: solid 2px $primary-color;
+                background-color: white;
+                padding: 8px 20px;
+                border-radius: 8px;
+                transition: all 115ms;
+                color: $primary-color;
+                font-weight: 600;
+                border: 2px solid $secondary-color;
+                &:hover {
+                    background-color: $primary-color;
+                    border: solid 2px white;
+                    color: white;
+                    transform: scale(1.05);
+                }
+            }
+            @media screen and (min-width: $lg) {
+                min-height: 400px;
+            }
         }
     }
 }
 
+/*==========================================
+                            article
+===========================================*/
+.filtre-mobile{
+    h3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+    .chevron {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            width: 20px;
+        }
+    }
+}
 /*==========================================
                             responsive
 ===========================================*/
