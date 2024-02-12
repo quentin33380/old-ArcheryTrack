@@ -1,3 +1,72 @@
+@charset "UTF-8";
+/*  variable mediaquery  */
+/*==========================================
+                            main style
+===========================================*/
+.main-client {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client {
+    flex-direction: row;
+  }
+  .main-client aside {
+    width: 33%;
+  }
+}
+.main-client .client-nav {
+  background-color: #474787;
+  color: white;
+  padding: 16px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.main-client .client-nav p {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bebebe;
+  width: 65%;
+  align-self: center;
+}
+.main-client .client-nav > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main-client .client-nav > ul .submenu {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.main-client .client-nav > ul .submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 300ms all;
+}
+.main-client .client-nav > ul .submenu li a:hover {
+  gap: 16px;
+}
+.main-client .client-nav > ul a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.main-client .client-nav > ul a .chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 300ms all;
+}
+.main-client .client-nav > ul a .chevron svg {
+  width: 20px;
+}
+.main-client .client-nav > ul a .chevron-rotated {
+  transform: rotate(180deg);
+}
+
 /*  variable mediaquery  */
 @font-face {
   font-family: "Poppins";
@@ -11,8 +80,10 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   box-sizing: border-box;
+}
+body:not(.body-client) {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,7 +132,7 @@ img {
   max-width: 100%;
 }
 
-header {
+header:not(.body-client header) {
   background-image: url("/public/images/bandeau_header.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,7 +142,13 @@ header {
   height: 130px;
 }
 @media screen and (min-width: 640px) {
-  header {
+  header:not(.body-client header) {
+    padding: 18px 0;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .body-client header {
     padding: 18px 0;
   }
 }
@@ -80,13 +157,8 @@ main {
   padding-top: 32px;
 }
 
-section {
+section:not(#article) {
   padding: 32px 0;
-}
-@media screen and (min-width: 768px) {
-  section {
-    padding: 85px 0;
-  }
 }
 
 footer {
@@ -94,20 +166,28 @@ footer {
   height: 100px;
 }
 
+.separator-y {
+  display: none;
+}
 @media screen and (min-width: 1024px) {
   .separator-y {
-    background-color: #dedede;
+    background-color: #bdbdbd;
     width: 2px;
-    height: 100%;
     border-radius: 8px;
+    display: block;
   }
 }
 
 .separator-x {
-  background-color: #dedede;
+  background-color: #bdbdbd;
   height: 2px;
   width: 100%;
   border-radius: 8px;
+}
+@media screen and (min-width: 1024px) {
+  .separator-x {
+    display: none;
+  }
 }
 
 input {
@@ -119,7 +199,8 @@ input {
 /*==========================================
                             menu
 ===========================================*/
-nav {
+/*main menu*/
+.main-menu {
   background-color: #474787;
   display: flex;
   flex-direction: row;
@@ -128,26 +209,26 @@ nav {
   padding: 16px 0px;
   justify-content: space-between;
 }
-nav .logo {
+.main-menu .logo {
   display: flex;
   flex-direction: row;
   gap: 16px;
   align-items: center;
   padding-left: 18px;
 }
-nav.container-nav {
+.main-menu.container-nav {
   border-radius: 0px 0px 18px 18px;
 }
 @media screen and (min-width: 640px) {
-  nav.container-nav {
+  .main-menu.container-nav {
     border-radius: 18px;
   }
 }
-nav.container-open {
+.main-menu.container-open {
   border-radius: 0;
 }
 @media screen and (min-width: 640px) {
-  nav.container-open {
+  .main-menu.container-open {
     border-radius: 18px 18px 0 0;
   }
 }
@@ -158,6 +239,7 @@ nav.container-open {
 @media screen and (min-width: 1024px) {
   .nav-ul {
     padding-right: 18px;
+    align-items: center;
   }
 }
 
@@ -165,10 +247,14 @@ nav.container-open {
   display: block;
 }
 
-ul {
+.actived {
+  color: #b3b3b3;
+}
+
+#menu {
   padding-left: 0;
 }
-ul.nav-open {
+#menu.nav-open {
   background-color: #474787;
   color: white;
   border-radius: 0 0 18px 18px;
@@ -180,18 +266,50 @@ ul.nav-open {
   width: 100%;
   z-index: 10;
 }
-ul.nav-open li:hover {
+#menu.nav-open li:not(.isActived):hover {
   background-color: #fff;
 }
-ul.nav-open a {
-  transition: ease-in-out;
-  transition-duration: 300ms;
+#menu.nav-open li.isActived {
+  background-color: #474787;
+}
+#menu.nav-open li a {
+  transition: all 300ms ease-in-out;
   display: block;
   width: 100%;
   padding: 12px 18px;
 }
-ul.nav-open a:hover {
+#menu.nav-open li a:hover {
   color: #474787;
+  padding-left: 28px;
+}
+#menu.nav-open li.isActived a:hover {
+  color: #b3b3b3;
+  padding-left: 18px;
+  cursor: default;
+}
+
+/*main menu client*/
+.body-client button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+}
+.body-client .nav-open li form {
+  width: 100%;
+}
+.body-client .nav-open li form:hover {
+  background-color: red;
+}
+.body-client .nav-open li form button {
+  padding: 12px 18px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.body-client .nav-open li form button:hover {
   padding-left: 28px;
 }
 
@@ -261,7 +379,6 @@ ul.nav-open a:hover {
     margin-right: 25px;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .card {
     width: 65%;
@@ -534,8 +651,21 @@ ul.nav-open a:hover {
   transform: scale(1.05);
 }
 
+.mail-card {
+  border-radius: 18px;
+  background-color: #dedede;
+  color: #474787;
+  padding: 32px;
+  text-align: center;
+}
+.mail-card a {
+  color: #474787;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 /*==========================================
-                            responsive
+                        inscription/connexion
 ===========================================*/
 #register .card-register {
   background-color: #D9D9D9;
@@ -694,19 +824,172 @@ ul.nav-open a:hover {
 /*==========================================
                             article
 ===========================================*/
-.filtre-mobile h3 {
+.page-article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 0;
+}
+.page-article .separator-y {
+  width: 10px;
+}
+@media screen and (min-width: 1024px) {
+  .page-article {
+    flex-direction: row;
+    gap: 32px;
+    justify-content: space-between;
+  }
+}
+.page-article aside {
+  background-color: #dedede;
+  border-radius: 18px;
+  padding: 32px;
+}
+@media screen and (min-width: 1024px) {
+  .page-article aside {
+    width: 25%;
+    height: 100vh;
+  }
+}
+.page-article aside h2, .page-article aside h3 {
+  margin: 0;
+}
+.page-article aside .filtre-mobile {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+}
+.page-article aside .filtre-mobile button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+.page-article aside .filtre-mobile h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
 }
-.filtre-mobile .chevron {
+.page-article aside .filtre-mobile .chevron {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 300ms all;
 }
-.filtre-mobile .chevron svg {
+.page-article aside .filtre-mobile .chevron svg {
   width: 20px;
+}
+.page-article aside .filtre-mobile .chevron-rotated {
+  transform: rotate(180deg);
+}
+.page-article aside .categories {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .page-article aside .categories {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+.page-article aside .categories .input-checkbox-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.page-article aside .categories .input-checkbox-group input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 6px;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border: 1px solid rgb(89, 89, 89);
+  transition: all;
+  transition-duration: 150ms;
+}
+.page-article aside .categories .input-checkbox-group input[type=checkbox]:hover {
+  background-color: #a2a2f8;
+}
+.page-article aside .categories .input-checkbox-group input[type=checkbox]:checked {
+  background-color: #474787;
+  border: 1px solid #a2a2f8;
+}
+.page-article aside .categories .input-checkbox-group input[type=checkbox]:checked::after {
+  content: "✔"; /* Caractère de coche */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+}
+.page-article #article {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+@media screen and (min-width: 640px) {
+  .page-article #article {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .page-article #article {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .page-article #article {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.page-article #article .purple-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .page-article #article .purple-card {
+    align-items: start;
+  }
+}
+.page-article #article .purple-card img {
+  border-radius: 8px;
+  width: 100%;
+}
+.page-article #article .purple-card .card-text {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  color: #474787;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+.page-article #article .purple-card .card-text a {
+  border: solid 2px white;
+  align-self: end;
+  background-color: #474787;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 115ms;
+}
+.page-article #article .purple-card .card-text a:hover {
+  background-color: white;
+  border: solid 2px #474787;
+  color: #474787;
+  transform: scale(1.05);
 }
 
 /*==========================================

@@ -11,19 +11,24 @@
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/splide.js'])
     </head>
     <body x-data="{open : false}">
-        <header>
+        <header class="vitrine-header">
             <div class="container">
-                <nav :class="{'container-nav': !open, 'container-open' : open}">
+                <nav class="main-menu" :class="{'container-nav': !open, 'container-open' : open}">
                     <a href="{{route('accueil')}}" class="logo">
                         <img src="{{asset('images/logo.svg')}}">
                         <p class="main-title">ArcheryTrack</p>
                     </a>
                     <ul class="nav-ul" id="menu">
-                        <li><a href="{{route('accueil')}}">Accueil</a></li>
-                        <li><a href="{{route('article')}}">Articles</a></li>
-                        <li><a href="{{route('contact')}}">Contact</a></li>
-                        {{-- todo if connected -> Profil --}}
-                        <li><a href="{{route('register')}}">Connexion / inscription</a></li>
+                        <x-nav-link link="accueil" route="{{route('accueil')}}">Accueil</x-nav-link>
+                        <x-nav-link link="article" route="{{route('article')}}">Article</x-nav-link>
+                        <x-nav-link link="contact" route="{{route('contact')}}">Contact</x-nav-link>
+                        <li>
+                            @if (auth()->check())
+                                <a href="{{route('dashboard')}}">Profile</a>
+                            @else
+                                <a href="{{route('register')}}">Connexion / inscription</a>
+                            @endif
+                        </li>
                     </ul>
                     <label class="hamburger" id="menuToggle">
                         <input type="checkbox" x-on:click="open = ! open">
@@ -40,11 +45,16 @@
                     x-transition:leave="transition ease-in duration-75"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95">
-                    <li><a href="{{route('accueil')}}">Accueil</a></li>
-                    <li><a href="{{route('article')}}">Articles</a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                    {{-- todo if connected -> Profil --}}
-                    <li><a href="{{route('register')}}">Connexion / inscription</a></li>
+                    <x-nav-link link="accueil" route="{{route('accueil')}}">Accueil</x-nav-link>
+                    <x-nav-link link="article" route="{{route('article')}}">Article</x-nav-link>
+                    <x-nav-link link="contact" route="{{route('contact')}}">Contact</x-nav-link>
+                    <li>
+                        @if (auth()->check())
+                            <a href="{{route('dashboard')}}">Profile</a>
+                        @else
+                            <x-nav-link link="register" route="{{route('register')}}">Connexion / inscription</x-nav-link>
+                        @endif
+                    </li>
                 </ul>
             </div>
         </header>

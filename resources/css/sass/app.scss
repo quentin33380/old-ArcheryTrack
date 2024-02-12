@@ -1,3 +1,5 @@
+@import 'client-app';
+
 $font-stack: 'Poppins';
 $font-regular: 400;
 $font-semi: 600;
@@ -25,11 +27,13 @@ $xxl: 1536px;
 body{
     margin:0;
     padding:0;
-    min-height: 100vh;
     box-sizing:border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    &:not(.body-client){
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 a{
@@ -65,7 +69,7 @@ img{
     max-width: 100%;
 }
 
-header {
+header:not(.body-client header) {
     background-image: url("/public/images/bandeau_header.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,17 +81,19 @@ header {
     }
     height: 130px;
 }
+.body-client header{
+    @media screen and (min-width : $sm) {
+        padding: 18px 0;
+    }
+}
 
 main
 {
     padding-top: 32px;
 }
 
-section{
+section:not(#article){
     padding: 32px 0;
-    @media screen and (min-width: $md){
-        padding: 85px 0;
-    }
 }
 
 footer{
@@ -96,18 +102,22 @@ footer{
 }
 
 .separator-y{
+    display: none;
     @media screen and (min-width : $lg) {
-        background-color:#dedede;
+        background-color:#bdbdbd;
         width: 2px;
-        height: 100%;
         border-radius: 8px;
+        display: block;
     }
 }
 .separator-x{
-    background-color:#dedede;
+    background-color:#bdbdbd;
     height: 2px;
     width: 100%;
     border-radius: 8px;
+    @media screen and (min-width : $lg) {
+        display: none;
+    }
 }
 
 input{
@@ -119,7 +129,8 @@ input{
 /*==========================================
                             menu
 ===========================================*/
-nav{
+/*main menu*/
+.main-menu{
     background-color: $primary-color;
     display: flex;
     flex-direction: row;
@@ -152,20 +163,23 @@ nav{
     display: none;
     @media screen and (min-width : $lg) {
         padding-right: 18px;
+        align-items: center;
     }
 }
 
 .active{
     display: block;
 }
+.actived{
+    color: #b3b3b3;
+}
 
-
-ul{
+#menu {
     padding-left: 0;
-    &.nav-open{
+    &.nav-open {
         background-color: $primary-color;
-        color : white;
-        border-radius : 0 0 18px 18px;
+        color: white;
+        border-radius: 0 0 18px 18px;
         flex-direction: column;
         display: flex;
         padding-bottom: 18px;
@@ -173,23 +187,64 @@ ul{
         position: relative;
         width: 100%;
         z-index: 10;
-
-        li:hover{
-            background-color: #fff;
-        }
-        a{
-            transition: ease-in-out;
-            transition-duration: 300ms;
-            display: block;
-            width: 100%;
-            padding: 12px 18px;
-            &:hover{
-                color: $primary-color;
-                padding-left: 28px;
+        li {
+            &:not(.isActived):hover {
+                background-color: #fff;
+            }
+            &.isActived {
+                background-color: $primary-color;
+            }
+            a {
+                transition: all 300ms ease-in-out;
+                display: block;
+                width: 100%;
+                padding: 12px 18px;
+                &:hover {
+                    color: $primary-color;
+                    padding-left: 28px;
+                }
+            }
+            &.isActived a:hover {
+                color: #b3b3b3;
+                padding-left: 18px;
+                cursor: default;
             }
         }
     }
 }
+
+
+/*main menu client*/
+
+.body-client {
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: white;
+        font-size: 1rem;
+        transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+    }
+    .nav-open li {
+        form {
+            width: 100%;
+            &:hover {
+                background-color: red;
+            }
+            button {
+                padding: 12px 18px;
+                display: block;
+                width: 100%;
+                text-align: left;
+                &:hover {
+                    padding-left: 28px;
+                }
+            }
+        }
+    }
+}
+
+
 
 /*menu burger*/
 .hamburger {
@@ -254,9 +309,6 @@ ul{
             margin-right: 25px;
         }
     }
-}
-
-.card{
     @media screen and (min-width: $lg){
         width: 65%;
     }
@@ -523,10 +575,22 @@ ul{
         }
     }
 }
-
+.mail-card
+{
+    border-radius: 18px;
+    background-color: #dedede;
+    color: $primary-color;
+    padding: 32px;
+    text-align: center;
+    a{
+        color: $primary-color;
+        font-weight: $font-semi;
+        font-size: 1.1rem;
+    }
+}
 
 /*==========================================
-                            responsive
+                        inscription/connexion
 ===========================================*/
 #register{
     .card-register{
@@ -663,19 +727,157 @@ ul{
 /*==========================================
                             article
 ===========================================*/
-.filtre-mobile{
-    h3{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 16px;
+
+.page-article{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0;
+    .separator-y{
+        width: 10px;
     }
-    .chevron {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        svg{
-            width: 20px;
+    @media screen and (min-width:$lg) {
+        flex-direction: row;
+        gap: 32px;
+        justify-content: space-between;
+    }
+    aside{
+        background-color: #dedede;
+        border-radius: 18px;
+        padding: 32px;
+        @media screen and (min-width:$lg) {
+            width: 25%;
+            height: 100vh;
+        }
+        h2, h3{
+            margin: 0;
+        }
+        .filtre-mobile{
+            display: flex;
+            gap: 18px;
+            flex-direction: column;
+            button{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                border: none;
+                background-color: transparent;
+            }
+            h3{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+            }
+            .chevron {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 300ms all;
+                svg{
+                    width: 20px;
+                }
+                &-rotated{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .categories{
+            padding-top: 8px;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            @media screen and (min-width: $lg) {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .input-checkbox-group{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                input[type="checkbox"] {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    background-color: #fff;
+                    border-radius: 6px;
+                    height: 20px;
+                    width: 20px;
+                    position: relative;
+                    border: 1px solid rgb(89, 89, 89);
+                    transition: all;
+                    transition-duration: 150ms;
+                    &:hover {
+                        background-color: $tiertiary-color;
+                    }
+                    &:checked{
+                        background-color: $primary-color;
+                        border: 1px solid $tiertiary-color;
+                        &::after {
+                            content: "✔"; /* Caractère de coche */
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            color: white;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #article{
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr;
+        @media screen and (min-width: $sm) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (min-width: $lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (min-width: $xl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .purple-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            @media screen and (min-width: $lg) {
+                align-items: start;
+            }
+            img{
+                border-radius: 8px;
+                width: 100%;
+            }
+            .card-text{
+                background-color: #fff;
+                padding: 16px;
+                border-radius: 8px;
+                color: $primary-color;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 8px;
+                a {
+                    border: solid 2px white;
+                    align-self: end;
+                    background-color: $primary-color;
+                    padding: 8px 20px;
+                    border-radius: 8px;
+                    transition: all 115ms;
+                    &:hover {
+                        background-color: white;
+                        border: solid 2px $primary-color;
+                        color: $primary-color;
+                        transform: scale(1.05);
+                    }
+                }
+            }
         }
     }
 }

@@ -13,17 +13,17 @@
                                 <div class="input-group">
                                     <label for="name">Nom</label>
                                     <input type="text" name="name" id="name">
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('name')"  />
                                 </div>
                                 <div class="input-group">
                                     <label for="mail">E-mail de contact</label>
                                     <input type="text" name="mail" id="mail">
-                                    <x-input-error :messages="$errors->get('mail')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('mail')"  />
                                 </div>
                                 <div class="input-group">
                                     <label for="object">Objet</label>
                                     <input type="text" name="object" id="object">
-                                    <x-input-error :messages="$errors->get('object')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('object')"  />
                                 </div>
                                 <div class="input-group">
                                     <label for="demande">Votre demande</label>
@@ -37,4 +37,12 @@
             <div>
         </form>
     </section>
+
+    <section id="mail" class="container">
+        <div class="mail-card">
+            <p>Vous pouvez aussi me contacter directement sur mon adresse mail :</p>
+            <a href="mailto:ArcheryTrack@outlook.fr">ArcheryTrack@outlook.fr</a>
+        </div>
+    </section>
+
 </x-guest-layout>
