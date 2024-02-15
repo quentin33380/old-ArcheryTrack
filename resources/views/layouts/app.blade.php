@@ -7,27 +7,24 @@
 
         <title>{{ config('app.name', 'ArcheryTrack') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://kit.fontawesome.com/de89977258.js" crossorigin="anonymous"></script>
+        @livewireStyles
     </head>
-    <body class="body-client" x-data="{open : false}">
-        <header>
+    <body class="body-client">
+        <header x-data="{open : false}">
             <div class="container">
                 <nav class="main-menu" :class="{'container-nav': !open, 'container-open' : open}">
                     <a href="{{route('accueil')}}" class="logo">
                         <img src="{{asset('images/logo.svg')}}">
                         <p class="main-title">ArcheryTrack</p>
                     </a>
-                    <ul class="nav-ul" id="menu">
+                    <ul class="nav-ul" id="menu-pc">
                         <li><a href="{{route('accueil')}}">Retour au site</a></li>
-                        <li>
+                        <li class="deconnexion">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="deconnexion">Deconnexion</button>
+                                <button type="submit">Deconnexion</button>
                             </form>
                         </li>
                     </ul>
@@ -64,7 +61,25 @@
                 @include('layouts.navigation')
             </aside>
             <div class="separator-y"></div>
-            {{ $slot }}
+            <div class="main-content">
+                <section class="client-info">
+                    <div class="identity">
+                        <div>
+                            <img src="https://placehold.co/60x60" alt="">
+                        </div>
+                        <div>
+                            <li class="name-user">{{Auth::user()->name}}</li>
+                            <li class="role">Role</li>
+                        </div>
+                    </div>
+                    <div>
+                        <x-nav-link link="profle" route="{{'profile'}}">Modifier mes informations personnelles</x-nav-link>
+                    </div>
+                </section>
+                {{ $slot }}
+            </div>
         </main>
+
+        @livewireScriptConfig
     </body>
 </html>

@@ -26,51 +26,239 @@ $xxl: 1536px;
             width: 33%;
         }
     }
-    .client-nav{
+    aside{
         background-color: $primary-color;
-        color: white;
         padding: 16px;
         border-radius: 18px;
-        display: flex;
-        flex-direction: column;
-        p{
+        .client-nav{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            &>p{
             text-align: center;
             padding-bottom: 10px;
             border-bottom: 1px solid #bebebe;
             width: 65%;
             align-self: center;
-        }
-        &>ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            .submenu {
-                padding-top: 5px;
-                padding-left: 10px;
-                li a{
+            }
+            &>ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .submenu {
+                    padding-top: 5px;
+                    padding-left: 10px;
+                    li a{
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        transition: 300ms all;
+                        &:hover{
+                            gap: 16px;
+                        }
+                    }
+                }
+                a{
                     display: flex;
                     align-items: center;
                     gap: 8px;
-                    transition: 300ms all;
-                    &:hover{
-                        gap: 16px;
+                    .chevron {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 300ms all;
+                        svg{
+                            width: 20px;
+                        }
+                        &-rotated{
+                            transform: rotate(180deg);
+                        }
                     }
                 }
             }
-            a{
+        }
+    }
+    .main-content{
+        width: 100%;
+        section{
+            margin-bottom: 32px;
+        }
+        .button-select-view {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            @media screen and (min-width: $lg) {
+                justify-content: start;
+            }
+        }
+        .client-info{
+            background-color: #fff;
+            border-radius: 18px;
+            padding: 32px !important;
+            color: $primary-color;
+            border: solid 2px $primary-color;
+            border: soid 2px $secondary-color;
+            text-align: center;
+            @media screen and (min-width: $lg) {
+                width: 40%;
+            }
+            @media screen and (min-width: $xl) {
+                width: 30%;
+            }
+            .identity{
                 display: flex;
+                flex-direction: row;
                 align-items: center;
-                gap: 8px;
-                .chevron {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: 300ms all;
-                    svg{
-                        width: 20px;
+
+                gap:32px;
+                padding-bottom: 8px;
+                @media screen and (min-width: $lg) {
+                    justify-content: initial;
+                }
+                .role{
+                    color: #B3B3B3;
+                }
+                img{
+                    border-radius: 100%;
+                    border: 1px solid $primary-color;
+                }
+            }
+            a{
+                background-color: $primary-color;
+                border-radius: 8px;
+                padding: 4px 6px;
+                display: inline-block;
+            }
+        }
+        .section-form{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: $primary-color;
+            border-radius: 16px;
+            padding: 32px;
+            color: $primary-color;
+            &>div{
+                position: relative;
+                background-color: #fff;
+                padding: 32px;
+                border-radius: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+                .section-title{
+                    color: white;
+                    background-color: $secondary-color;
+                    position: absolute;
+                    border-radius: 100px;
+                    left: 50%;
+                    top: 0;
+                    transform: translate(-50%, -50%);
+                    width: 90%;
+                    text-align: center;
+                    box-shadow: 0px 5px 3px  rgba(0, 0, 0, 0.2);
+                    @media screen and (min-width: $lg) {
+                        left: 25px;
+                        transform: translate(0%, 0%);
+                        top: -20px;
+                        width: initial;
                     }
-                    &-rotated{
-                        transform: rotate(180deg);
+                    p{
+                        padding: 8px 18px;
+                        @media screen and (min-width: $lg) {
+                            padding:8px 64px;
+                        }
+                        margin: 0;
+                    }
+                }
+                .group-input-info{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 18px;
+                    @media screen and (min-width: $lg) {
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                    .input-label:not(.oeil-directeur .input-label){
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                        @media screen and (min-width: $xl) {
+                            flex-direction: row;
+                            align-items: center;
+                        }
+                        input{
+                            border: 2px solid $primary-color;
+                            background-color: $tiertiary-color;
+                            color: white;
+                            border-radius: 100px;
+                            padding: 6px 16px;
+                            text-align: center;
+                            @media screen and (min-width: $lg) {
+                                text-align: initial;
+                            }
+                        }
+                    }
+                    .oeil-directeur {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                        @media screen and (min-width: $xl) {
+                            flex-direction: row;
+                            align-items: center;
+                        }
+                        p{
+                            margin: 0;
+                        }
+                        .radio-input{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            gap: 8px;
+                            border-radius: 100px;
+                            padding: 4px 16px;
+                            .input-label{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                gap: 8px;
+                                input{
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+                                    appearance: none;
+                                    border:solid $primary-color 2px;
+                                    background-color: #fff;
+                                    border-radius: 6px;
+                                    height: 20px;
+                                    width: 20px;
+                                    margin: 0;
+                                    position: relative;
+                                    transition: all;
+                                    transition-duration: 150ms;
+                                    &:hover {
+                                        background-color: $tiertiary-color;
+                                    }
+                                    &:checked{
+                                        background-color: $primary-color;
+                                        border: 1px solid $tiertiary-color;
+                                        &::after {
+                                            content: "✔"; /* Caractère de coche */
+                                            position: absolute;
+                                            left: 49%;
+                                            top: 44%;
+                                            transform: translate(-50%, -50%);
+                                            color: white;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

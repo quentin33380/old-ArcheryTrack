@@ -56,7 +56,7 @@
                     </div>
                     <div class="purple-card">
                         <p>Inscrivez-vous gratuitement dès aujourd'hui et découvrez comment ArcheryTrack peut vous aider à devenir un archer plus compétent et confiant. Le tir à l'arc n'a jamais été aussi gratifiant.</p>
-                        <a href="javascript:void(0)">Connexion / Inscription</a>
+                        <a href="{{route('register')}}">Connexion / Inscription</a>
                     </div>
                 </div>
             </div>

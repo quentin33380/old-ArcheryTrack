@@ -2,11 +2,12 @@
     'class' => '',
     'link' => '',
     'route' => '',
-    'sousMenus' => []
+    'sousMenus' => [],
+    'isActive' => request()->routeIs($link),
 ])
 
-<li x-data="{ open: false }" :class="{ 'isActived': request()->routeIs($link) }">
-    <a href="{{$route}}" @click.prevent="open = !open" class="{{ $class }} {{ request()->routeIs($link) ? ' actived' : '' }}">
+<li x-data="{ open: false }" x-bind:class=" { 'isActived': @js($isActive) }">
+    <a href="{{$route}}" x-on:click="open = !open" class="{{ $class }} {{ request()->routeIs($link) ? ' actived' : '' }}">
         {{ $slot }}
         @if ($sousMenus)
             <span class="chevron" x-bind:class="{'chevron-rotated': open}">

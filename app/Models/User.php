@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function profileArcher()
+    {
+        return $this->hasOne(ProfileArcher::class, 'user_id');
+    }
 }

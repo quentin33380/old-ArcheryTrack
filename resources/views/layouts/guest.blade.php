@@ -4,13 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/splide.js'])
+        <script src="https://kit.fontawesome.com/de89977258.js" crossorigin="anonymous"></script>
+        @livewireStyles
     </head>
-    <body x-data="{open : false}">
+    <body x-data="{open : false}" class="body-vitrine">
         <header class="vitrine-header">
             <div class="container">
                 <nav class="main-menu" :class="{'container-nav': !open, 'container-open' : open}">
@@ -18,17 +17,15 @@
                         <img src="{{asset('images/logo.svg')}}">
                         <p class="main-title">ArcheryTrack</p>
                     </a>
-                    <ul class="nav-ul" id="menu">
+                    <ul class="nav-ul" id="menu-pc">
                         <x-nav-link link="accueil" route="{{route('accueil')}}">Accueil</x-nav-link>
                         <x-nav-link link="article" route="{{route('article')}}">Article</x-nav-link>
                         <x-nav-link link="contact" route="{{route('contact')}}">Contact</x-nav-link>
-                        <li>
-                            @if (auth()->check())
-                                <a href="{{route('dashboard')}}">Profile</a>
-                            @else
-                                <a href="{{route('register')}}">Connexion / inscription</a>
-                            @endif
-                        </li>
+                        @if (auth()->check())
+                            <x-nav-link link="dashboard" route="{{route('dashboard')}}">Profile</x-nav-link>
+                        @else
+                            <x-nav-link link="register" route="{{route('register')}}">Connexion / inscription</x-nav-link>
+                        @endif
                     </ul>
                     <label class="hamburger" id="menuToggle">
                         <input type="checkbox" x-on:click="open = ! open">
@@ -62,5 +59,7 @@
         {{ $slot }}
 
         <x-footer/>
+
+        @livewireScriptConfig
     </body>
 </html>

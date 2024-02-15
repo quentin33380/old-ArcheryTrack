@@ -35,7 +35,11 @@ body{
         justify-content: space-between;
     }
 }
+.body-client
+{
+    background-color: #dedede;
 
+}
 a{
     text-decoration: none;
     color: white
@@ -92,7 +96,7 @@ main
     padding-top: 32px;
 }
 
-section:not(#article){
+.body-vitrine section:not(#article){
     padding: 32px 0;
 }
 
@@ -157,6 +161,7 @@ input{
             border-radius: 18px 18px 0 0;
         }
     }
+
 }
 
 .nav-ul{
@@ -165,14 +170,36 @@ input{
         padding-right: 18px;
         align-items: center;
     }
+    li {
+        &:not(.isActived, .deconnexion):hover {
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        &.isActived {
+            background-color: $primary-color;
+        }
+        a {
+            transition: all 300ms ease-in-out;
+            display: block;
+            padding: 8px;
+            &:not(.actived):hover {
+                color: $primary-color;
+            }
+            &.actived
+            {
+                cursor: default;
+                color: $tiertiary-color;
+                &::before{
+                    font-family: "Font Awesome 5 Free"; content: "\f35a";
+                    width: 10px;
+                    height: 10px;
+                    display: inline;
+                }
+            }
+        }
+    }
 }
 
-.active{
-    display: block;
-}
-.actived{
-    color: #b3b3b3;
-}
 
 #menu {
     padding-left: 0;
@@ -197,17 +224,30 @@ input{
             a {
                 transition: all 300ms ease-in-out;
                 display: block;
-                width: 100%;
                 padding: 12px 18px;
                 &:hover {
                     color: $primary-color;
                     padding-left: 28px;
                 }
             }
-            &.isActived a:hover {
-                color: #b3b3b3;
-                padding-left: 18px;
-                cursor: default;
+            &.isActived{
+                padding: 12px 0px;
+                a{
+                    cursor: default;
+                    color: $tiertiary-color;
+                    display: inline;
+                    flex-direction: row;
+                    gap: 4px;
+                    align-items: center;
+                    &::before{
+                        font-family: "Font Awesome 5 Free"; content: "\f35a";
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+                :hover {
+                    padding-left: 18px;
+                }
             }
         }
     }
@@ -217,6 +257,15 @@ input{
 /*main menu client*/
 
 .body-client {
+    #menu-pc a{
+        transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+        padding: 8px;
+        border-radius: 8px;
+        &:hover{
+            background-color: #fff;
+            color: $primary-color;
+        }
+    }
     button {
         border: none;
         background-color: transparent;
@@ -224,6 +273,13 @@ input{
         color: white;
         font-size: 1rem;
         transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+        padding: 8px;
+        &:hover {
+            background-color: red;
+        }
+        @media screen and (min-width: $lg) {
+            border-radius: 8px;
+        }
     }
     .nav-open li {
         form {
@@ -465,7 +521,7 @@ input{
         svg {
             fill: #fff !important;
             &:hover {
-                fill: $primary-color !important;
+                fill: $tiertiary-color !important;
             }
         }
     }
@@ -611,6 +667,7 @@ input{
             text-align: center;
         }
         ul{
+            padding: 0;
             width: 87%;
             align-self: center;
             @media screen and (min-width: $sm) {
@@ -747,7 +804,6 @@ input{
         padding: 32px;
         @media screen and (min-width:$lg) {
             width: 25%;
-            height: 100vh;
         }
         h2, h3{
             margin: 0;
@@ -786,6 +842,7 @@ input{
             padding-top: 8px;
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             gap: 16px;
             @media screen and (min-width: $lg) {
                 flex-direction: column;

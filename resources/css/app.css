@@ -16,55 +16,262 @@
     width: 33%;
   }
 }
-.main-client .client-nav {
+.main-client aside {
   background-color: #474787;
-  color: white;
   padding: 16px;
   border-radius: 18px;
+}
+.main-client aside .client-nav {
+  color: white;
   display: flex;
   flex-direction: column;
 }
-.main-client .client-nav p {
+.main-client aside .client-nav > p {
   text-align: center;
   padding-bottom: 10px;
   border-bottom: 1px solid #bebebe;
   width: 65%;
   align-self: center;
 }
-.main-client .client-nav > ul {
+.main-client aside .client-nav > ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.main-client .client-nav > ul .submenu {
+.main-client aside .client-nav > ul .submenu {
   padding-top: 5px;
   padding-left: 10px;
 }
-.main-client .client-nav > ul .submenu li a {
+.main-client aside .client-nav > ul .submenu li a {
   display: flex;
   align-items: center;
   gap: 8px;
   transition: 300ms all;
 }
-.main-client .client-nav > ul .submenu li a:hover {
+.main-client aside .client-nav > ul .submenu li a:hover {
   gap: 16px;
 }
-.main-client .client-nav > ul a {
+.main-client aside .client-nav > ul a {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.main-client .client-nav > ul a .chevron {
+.main-client aside .client-nav > ul a .chevron {
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 300ms all;
 }
-.main-client .client-nav > ul a .chevron svg {
+.main-client aside .client-nav > ul a .chevron svg {
   width: 20px;
 }
-.main-client .client-nav > ul a .chevron-rotated {
+.main-client aside .client-nav > ul a .chevron-rotated {
   transform: rotate(180deg);
+}
+.main-client .main-content {
+  width: 100%;
+}
+.main-client .main-content section {
+  margin-bottom: 32px;
+}
+.main-client .main-content .button-select-view {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .button-select-view {
+    justify-content: start;
+  }
+}
+.main-client .main-content .client-info {
+  background-color: #fff;
+  border-radius: 18px;
+  padding: 32px !important;
+  color: #474787;
+  border: solid 2px #474787;
+  border: soid 2px #2B2B52;
+  text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .client-info {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .main-client .main-content .client-info {
+    width: 30%;
+  }
+}
+.main-client .main-content .client-info .identity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 8px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .client-info .identity {
+    justify-content: initial;
+  }
+}
+.main-client .main-content .client-info .identity .role {
+  color: #B3B3B3;
+}
+.main-client .main-content .client-info .identity img {
+  border-radius: 100%;
+  border: 1px solid #474787;
+}
+.main-client .main-content .client-info a {
+  background-color: #474787;
+  border-radius: 8px;
+  padding: 4px 6px;
+  display: inline-block;
+}
+.main-client .main-content .section-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #474787;
+  border-radius: 16px;
+  padding: 32px;
+  color: #474787;
+}
+.main-client .main-content .section-form > div {
+  position: relative;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.main-client .main-content .section-form > div .section-title {
+  color: white;
+  background-color: #2B2B52;
+  position: absolute;
+  border-radius: 100px;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .section-form > div .section-title {
+    left: 25px;
+    transform: translate(0%, 0%);
+    top: -20px;
+    width: initial;
+  }
+}
+.main-client .main-content .section-form > div .section-title p {
+  padding: 8px 18px;
+  margin: 0;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .section-form > div .section-title p {
+    padding: 8px 64px;
+  }
+}
+.main-client .main-content .section-form > div .group-input-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .section-form > div .group-input-info {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.main-client .main-content .section-form > div .group-input-info .input-label:not(.oeil-directeur .input-label) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+@media screen and (min-width: 1280px) {
+  .main-client .main-content .section-form > div .group-input-info .input-label:not(.oeil-directeur .input-label) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.main-client .main-content .section-form > div .group-input-info .input-label:not(.oeil-directeur .input-label) input {
+  border: 2px solid #474787;
+  background-color: #a2a2f8;
+  color: white;
+  border-radius: 100px;
+  padding: 6px 16px;
+  text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .section-form > div .group-input-info .input-label:not(.oeil-directeur .input-label) input {
+    text-align: initial;
+  }
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+@media screen and (min-width: 1280px) {
+  .main-client .main-content .section-form > div .group-input-info .oeil-directeur {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur p {
+  margin: 0;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 8px;
+  border-radius: 100px;
+  padding: 4px 16px;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input .input-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input .input-label input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid #474787 2px;
+  background-color: #fff;
+  border-radius: 6px;
+  height: 20px;
+  width: 20px;
+  margin: 0;
+  position: relative;
+  transition: all;
+  transition-duration: 150ms;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input .input-label input:hover {
+  background-color: #a2a2f8;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input .input-label input:checked {
+  background-color: #474787;
+  border: 1px solid #a2a2f8;
+}
+.main-client .main-content .section-form > div .group-input-info .oeil-directeur .radio-input .input-label input:checked::after {
+  content: "✔"; /* Caractère de coche */
+  position: absolute;
+  left: 49%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
 }
 
 /*  variable mediaquery  */
@@ -87,6 +294,10 @@ body:not(.body-client) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.body-client {
+  background-color: #dedede;
 }
 
 a {
@@ -157,7 +368,7 @@ main {
   padding-top: 32px;
 }
 
-section:not(#article) {
+.body-vitrine section:not(#article) {
   padding: 32px 0;
 }
 
@@ -242,13 +453,31 @@ input {
     align-items: center;
   }
 }
-
-.active {
-  display: block;
+.nav-ul li:not(.isActived, .deconnexion):hover {
+  border-radius: 8px;
+  background-color: #fff;
 }
-
-.actived {
-  color: #b3b3b3;
+.nav-ul li.isActived {
+  background-color: #474787;
+}
+.nav-ul li a {
+  transition: all 300ms ease-in-out;
+  display: block;
+  padding: 8px;
+}
+.nav-ul li a:not(.actived):hover {
+  color: #474787;
+}
+.nav-ul li a.actived {
+  cursor: default;
+  color: #a2a2f8;
+}
+.nav-ul li a.actived::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f35a";
+  width: 10px;
+  height: 10px;
+  display: inline;
 }
 
 #menu {
@@ -275,20 +504,43 @@ input {
 #menu.nav-open li a {
   transition: all 300ms ease-in-out;
   display: block;
-  width: 100%;
   padding: 12px 18px;
 }
 #menu.nav-open li a:hover {
   color: #474787;
   padding-left: 28px;
 }
-#menu.nav-open li.isActived a:hover {
-  color: #b3b3b3;
-  padding-left: 18px;
+#menu.nav-open li.isActived {
+  padding: 12px 0px;
+}
+#menu.nav-open li.isActived a {
   cursor: default;
+  color: #a2a2f8;
+  display: inline;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+#menu.nav-open li.isActived a::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f35a";
+  width: 10px;
+  height: 10px;
+}
+#menu.nav-open li.isActived :hover {
+  padding-left: 18px;
 }
 
 /*main menu client*/
+.body-client #menu-pc a {
+  transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+  padding: 8px;
+  border-radius: 8px;
+}
+.body-client #menu-pc a:hover {
+  background-color: #fff;
+  color: #474787;
+}
 .body-client button {
   border: none;
   background-color: transparent;
@@ -296,6 +548,15 @@ input {
   color: white;
   font-size: 1rem;
   transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
+  padding: 8px;
+}
+.body-client button:hover {
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .body-client button {
+    border-radius: 8px;
+  }
 }
 .body-client .nav-open li form {
   width: 100%;
@@ -545,7 +806,7 @@ input {
   fill: #fff !important;
 }
 .splide__arrow svg:hover {
-  fill: #474787 !important;
+  fill: #a2a2f8 !important;
 }
 .splide__pagination__page {
   background-color: #fff !important;
@@ -688,6 +949,7 @@ input {
   text-align: center;
 }
 #register .card-register ul {
+  padding: 0;
   width: 87%;
   align-self: center;
 }
@@ -848,7 +1110,6 @@ input {
 @media screen and (min-width: 1024px) {
   .page-article aside {
     width: 25%;
-    height: 100vh;
   }
 }
 .page-article aside h2, .page-article aside h3 {
@@ -888,6 +1149,7 @@ input {
   padding-top: 8px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 16px;
 }
 @media screen and (min-width: 1024px) {

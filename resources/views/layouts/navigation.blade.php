@@ -13,8 +13,8 @@
             >
                 Mon arc
         </x-nav-link>
-        <x-nav-link>Mes fleches</x-nav-link>
-        <x-nav-link>Mes entrainements</x-nav-link>
-        <x-nav-link>Mes feuilles de marques</x-nav-link>
+        <x-nav-link link="">Mes fleches</x-nav-link>
+        <x-nav-link link="">Mes entrainements</x-nav-link>
+        <x-nav-link link="">Mes feuilles de marques</x-nav-link>
     </ul>
 </nav>
