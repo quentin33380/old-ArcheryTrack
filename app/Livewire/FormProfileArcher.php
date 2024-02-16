@@ -15,8 +15,8 @@ class FormProfileArcher extends Component
     public $license_number;
     #[Rule('in:0,1')]
     public $eye_director = false;
-    #[Rule('string|max:20')]
-    public $elongate = false;
+    #[Rule('numeric|min:0')]
+    public $elongate;
 
     public function mount()
     {

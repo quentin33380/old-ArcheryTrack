@@ -37,7 +37,7 @@
             <div>
                 <div class="input-label">
                     <label for="elongate">Allonge</label>
-                    <input type="text" id="elongate" wire:model.live.debounce.500ms="elongate">
+                    <input type="number" name="allonge" min="0" id="elongate" wire:model.live.debounce.500ms="elongate">
                 </div>
                 <x-input-error :messages="$errors->get('elongate')" />
             </div>

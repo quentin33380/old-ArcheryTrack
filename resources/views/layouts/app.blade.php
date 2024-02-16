@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/de89977258.js" crossorigin="anonymous"></script>
         @livewireStyles
     </head>
-    <body class="body-client">
+    <body class="body-client" x-data="{ openModal: false }">
         <header x-data="{open : false}">
             <div class="container">
                 <nav class="main-menu" :class="{'container-nav': !open, 'container-open' : open}">
@@ -58,7 +58,7 @@
         <!-- Page Content -->
         <main class="main-client container">
             <aside>
-                @include('layouts.navigation')
+                @livewire('menu-component')
             </aside>
             <div class="separator-y"></div>
             <div class="main-content">
@@ -77,8 +77,34 @@
                     </div>
                 </section>
                 {{ $slot }}
+
+
             </div>
         </main>
+        <div
+            class="modal"
+            x-show="openModal"
+            @click.away="openModal = false"
+            style="display: none;"
+        >
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <span class="close" @click="openModal = false">&times;</span>
+                    <h2>Ajouter un arc</h2>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <!-- Form for adding a new bow -->
+                    <form>
+                        <label for="bowName">Nom de l'arc:</label>
+                        <input type="text" id="bowName" name="bowName">
+                        <!-- Add other form fields as needed -->
+                        <button type="submit">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         @livewireScriptConfig
     </body>

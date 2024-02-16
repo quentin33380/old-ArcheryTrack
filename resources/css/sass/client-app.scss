@@ -34,6 +34,9 @@ $colors: (
             width: 33%;
         }
     }
+    .error-input{
+        padding: 0;
+    }
     aside{
         background-color: $primary-color;
         padding: 16px;
@@ -332,6 +335,49 @@ $colors: (
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        .edit-profile section{
+            background-color: $primary-color;
+            padding: 32px;
+            border-radius: 18px;
+            color: $primary-color;
+            >section{
+                background-color: #fff;
+                margin-bottom: 0;
+                header{
+                    padding-top: 0;
+                    h2{
+                        margin-top: 0;
+                    }
+                }
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    input{
+                        border: 2px solid $primary-color;
+                    }
+                    button{
+                        border: 2px solid $primary-color;
+                        background-color: $primary-color;
+                        transition: all 300ms ease-in-out;
+                        &:hover{
+                            background-color: #fff;
+                            transform: scale(1.1);
+                            color: $primary-color;
+                        }
+                    }
+                }
+                #delete-account{
+                    border: 2px solid $primary-color;
+                    background-color: $primary-color;
+                    transition: all 300ms ease-in-out;
+                    &:hover{
+                        background-color: red;
+                        transform: scale(1.1);
                     }
                 }
             }
