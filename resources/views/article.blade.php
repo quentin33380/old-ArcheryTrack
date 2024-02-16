@@ -1,8 +1,8 @@
 <x-guest-layout>
     <div class="page-article container">
         <aside x-data="{
-            selectedView:''
-        }">
+                selectedView:''
+            }">
             <div class="filtre-mobile">
                 <h2>Catégorie</h2>
                 <div>
