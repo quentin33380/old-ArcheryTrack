@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('arcs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('name')->nullable();
             $table->enum('type', ['recurve', 'compound', 'longbow', 'crossbow'])->nullable();
             $table->integer('puissance')->nullable();
             $table->string('viseur_marque')->nullable();

@@ -3,23 +3,31 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class MenuComponent extends Component
 {
-    public $sousMenus = [
-        ['link' => 'ajouter-arc', 'nom' => '+ Ajouter un arc'],
-    ];
+    public $sousMenus = [];
 
-    public function ajouterArc()
+    protected $listeners = ['arcAdded' => 'loadArcs'];
+
+    public function mount()
     {
+        $this->loadArcs();
+    }
 
-        $numero = count($this->sousMenus);
-        $nouveauNom = 'Nom n°' . $numero;
-        $nouveauLink = 'profil-arc-' . $numero;
-        array_splice($this->sousMenus, count($this->sousMenus) - 1, 0, [[
-            'link' => $nouveauLink,
-            'nom' => $nouveauNom,
-        ]]);
+    public function loadArcs()
+    {
+        $userArcs = Auth::user()->arcs()->get();
+        $this->sousMenus = $userArcs->map(function ($arc, $index) {
+            return [
+                'link' => route('arcs.edit', $arc),
+                'nom' => $arc->nom,
+            ];
+        })->toArray();
+
+        // Ajouter "Ajouter un arc" à la fin
+        $this->sousMenus[] = ['link' => route('arcs.store'), 'nom' => '+ Ajouter un arc'];
     }
 
     public function render()

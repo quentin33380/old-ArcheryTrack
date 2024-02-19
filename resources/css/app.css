@@ -507,7 +507,6 @@
   transform: scale(1.1);
 }
 
-/*  variable mediaquery  */
 @font-face {
   font-family: "Poppins";
   src: url("../../public/font/Poppins-regular.ttf") format("truetype");
