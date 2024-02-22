@@ -22,6 +22,26 @@ $colors: (
             width: 33%;
         }
     }
+    button{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        padding: 8px 16px;
+        border-radius: 100px;
+        transition: 300ms all;
+        cursor: pointer;
+    }
+    .purple-pill{
+        color: white;
+        background-color: $primary-color;
+        width: fit-content;
+        border-radius: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+        margin: 0;
+    }
     .error-input{
         padding: 0;
     }
@@ -366,6 +386,49 @@ $colors: (
                     &:hover{
                         background-color: red;
                         transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        #arc-profile{
+            .svg-reglages{
+                width: 20px;
+                height: 20px;
+            }
+            .group-button{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin: 32px 16px;
+                @media screen and (min-width: $md) {
+                    margin: 32px 0px;
+                }
+                @media screen and (min-width: $md) {
+                    grid-template-columns: 1fr 1fr;
+                }
+                @media screen and (min-width: $lg) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+                .tab{
+                    background-color: $secondary-color;
+                    border: $secondary-color 2px solid;
+                    color: white;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 18px;
+                    span{
+                        display: flex;
+                        align-items: center;
+                    }
+                    &:hover{
+                        background-color: white;
+                        color: $secondary-color;
+                    }
+                    &-activated{
+                        background-color: white;
+                        color: $secondary-color;
                     }
                 }
             }

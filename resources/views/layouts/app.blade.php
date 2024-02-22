@@ -24,7 +24,7 @@
                         <li class="deconnexion">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit">Deconnexion</button>
+                                <button type="submit" class="disconnect">Deconnexion</button>
                             </form>
                         </li>
                     </ul>
@@ -48,7 +48,7 @@
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="deconnexion">Deconnexion</button>
+                            <button type="submit" class="disconnect">Deconnexion</button>
                         </form>
                     </li>
                 </ul>
@@ -81,30 +81,6 @@
 
             </div>
         </main>
-        <div
-            class="modal"
-            x-show="openModal"
-            @click.away="openModal = false"
-            style="display: none;"
-        >
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <span class="close" @click="openModal = false">&times;</span>
-                    <h2>Ajouter un arc</h2>
-                </div>
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <!-- Form for adding a new bow -->
-                    <form>
-                        <label for="bowName">Nom de l'arc:</label>
-                        <input type="text" id="bowName" name="bowName">
-                        <!-- Add other form fields as needed -->
-                        <button type="submit">Ajouter</button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         @livewireScriptConfig
     </body>

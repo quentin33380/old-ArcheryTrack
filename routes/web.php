@@ -2,6 +2,7 @@
 
 use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -38,11 +39,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Route des arcs
-    Route::get('/arcs/{arc}', function ($arcs) {
-        $arcs = Arcs::findOrFail($arcs);
-        return view('arcs.profil', ['arcs' => $arcs]);
-    })->name('arcs.profil');
-
+    Route::controller(ArcController::class)->name('arcs.')->prefix('arcs')
+    ->group(function () {
+        Route::get('view/{slug}', 'index')->name('index');
+        Route::get('create', 'createProfile')->name('profile');
+    });
 });
 
 require __DIR__.'/auth.php';

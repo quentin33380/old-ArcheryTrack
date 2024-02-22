@@ -16,6 +16,26 @@
     width: 33%;
   }
 }
+.main-client button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: 300ms all;
+  cursor: pointer;
+}
+.main-client .purple-pill {
+  color: white;
+  background-color: #474787;
+  width: fit-content;
+  border-radius: 100px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  margin: 0;
+}
 .main-client .error-input {
   padding: 0;
 }
@@ -506,6 +526,53 @@
   background-color: red;
   transform: scale(1.1);
 }
+.main-client .main-content #arc-profile .svg-reglages {
+  width: 20px;
+  height: 20px;
+}
+.main-client .main-content #arc-profile .group-button {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 16px;
+}
+@media screen and (min-width: 768px) {
+  .main-client .main-content #arc-profile .group-button {
+    margin: 32px 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-client .main-content #arc-profile .group-button {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile .group-button {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.main-client .main-content #arc-profile .group-button .tab {
+  background-color: #2B2B52;
+  border: #2B2B52 2px solid;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.main-client .main-content #arc-profile .group-button .tab span {
+  display: flex;
+  align-items: center;
+}
+.main-client .main-content #arc-profile .group-button .tab:hover {
+  background-color: white;
+  color: #2B2B52;
+}
+.main-client .main-content #arc-profile .group-button .tab-activated {
+  background-color: white;
+  color: #2B2B52;
+}
 
 @font-face {
   font-family: "Poppins";
@@ -773,7 +840,7 @@ input {
   background-color: #fff;
   color: #474787;
 }
-.body-client button {
+.body-client .disconnect {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -782,11 +849,11 @@ input {
   transition: padding-left 300ms ease-in-out, background-color 300ms ease-in-out;
   padding: 8px;
 }
-.body-client button:hover {
+.body-client .disconnect:hover {
   background-color: red;
 }
 @media screen and (min-width: 1024px) {
-  .body-client button {
+  .body-client .disconnect {
     border-radius: 8px;
   }
 }
