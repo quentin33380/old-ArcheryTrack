@@ -60,6 +60,53 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0;
+  width: 90%;
+  margin: 0 auto;
+}
+.main-client aside .client-nav > ul .client-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #474787;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+.main-client aside .client-nav > ul .client-info .identity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.main-client aside .client-nav > ul .client-info .identity div {
+  position: relative;
+}
+.main-client aside .client-nav > ul .client-info .identity div .profile_link {
+  background-color: #474787;
+  border: 2px solid #474787;
+  color: white;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  transition: all 300ms ease-in-out;
+}
+.main-client aside .client-nav > ul .client-info .identity div .profile_link:hover {
+  background-color: white;
+  transform: scale(1.05);
+  color: #474787;
+}
+.main-client aside .client-nav > ul .client-info .identity div img {
+  border-radius: 6px;
+  border: 1px solid #474787;
+}
+.main-client aside .client-nav > ul .client-info ul {
+  padding: 0;
 }
 .main-client aside .client-nav > ul .submenu {
   padding-top: 5px;
@@ -110,50 +157,6 @@
     justify-content: start;
   }
 }
-.main-client .main-content .client-info {
-  background-color: #fff;
-  border-radius: 18px;
-  padding: 32px !important;
-  color: #474787;
-  border: solid 2px #474787;
-  border: soid 2px #2B2B52;
-  text-align: center;
-}
-@media screen and (min-width: 1024px) {
-  .main-client .main-content .client-info {
-    width: 40%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .main-client .main-content .client-info {
-    width: 30%;
-  }
-}
-.main-client .main-content .client-info .identity {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 32px;
-  padding-bottom: 8px;
-}
-@media screen and (min-width: 1024px) {
-  .main-client .main-content .client-info .identity {
-    justify-content: initial;
-  }
-}
-.main-client .main-content .client-info .identity .role {
-  color: #B3B3B3;
-}
-.main-client .main-content .client-info .identity img {
-  border-radius: 100%;
-  border: 1px solid #474787;
-}
-.main-client .main-content .client-info a {
-  background-color: #474787;
-  border-radius: 8px;
-  padding: 4px 6px;
-  display: inline-block;
-}
 .main-client .main-content .section-form {
   display: flex;
   flex-direction: column;
@@ -166,11 +169,11 @@
 .main-client .main-content .section-form > div {
   position: relative;
   background-color: #fff;
-  padding: 32px;
+  padding: 40px 32px 32px;
   border-radius: 16px;
   display: flex;
-  flex-direction: column;
   gap: 32px;
+  flex-direction: column;
 }
 .main-client .main-content .section-form > div .section-title {
   color: white;
@@ -205,7 +208,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 18px;
+  gap: 32px;
 }
 @media screen and (min-width: 1024px) {
   .main-client .main-content .section-form > div .group-input-info {
@@ -295,6 +298,14 @@
   transform: translate(-50%, -50%);
   color: white;
   font-size: 16px;
+}
+.main-client .main-content .section-form > div .progression-section:first-of-type {
+  padding-bottom: 12px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content .section-form > div .progression-section:first-of-type {
+    border-bottom: 1px solid #474787;
+  }
 }
 .main-client .main-content .section-form > div .bloc-image-et-input {
   display: flex;
@@ -526,6 +537,16 @@
   background-color: red;
   transform: scale(1.1);
 }
+.main-client .main-content #arc-profile h1 {
+  margin: 0 auto 32px;
+  font-size: 1.2rem;
+  background-color: #2B2B52;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile h1 {
+    margin: 0 0 32px;
+  }
+}
 .main-client .main-content #arc-profile .svg-reglages {
   width: 20px;
   height: 20px;
@@ -539,10 +560,6 @@
 @media screen and (min-width: 768px) {
   .main-client .main-content #arc-profile .group-button {
     margin: 32px 0px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .main-client .main-content #arc-profile .group-button {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -572,6 +589,115 @@
 .main-client .main-content #arc-profile .group-button .tab-activated {
   background-color: white;
   color: #2B2B52;
+}
+.main-client .main-content #arc-profile #arc-config {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info {
+    align-items: start;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-flex {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .input-flex {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  gap: 4px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .input-label label {
+    text-align: center;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label input {
+  border: 2px solid #474787;
+  background-color: #a2a2f8;
+  color: white;
+  border-radius: 100px;
+  padding: 6px 16px;
+  text-align: center;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label.label-select-custom p {
+  margin: 0;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .input-label.label-select-custom p {
+    text-align: center;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select {
+  font-size: small;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #474787;
+  background-color: #a2a2f8;
+  color: white;
+  border-radius: 100px;
+  padding: 6px 16px;
+  text-align: center;
+  position: relative;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .chevron {
+  position: absolute;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 300ms all;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .chevron svg {
+  width: 20px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .chevron-rotated {
+  transform: rotate(180deg);
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .options {
+  font-size: small;
+  cursor: pointer;
+  background-color: #a2a2f8;
+  border-radius: 18px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #474787;
+  color: white;
+  overflow: hidden;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .options li {
+  padding: 4px 16px;
+  transition: 300ms all;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .options li:hover {
+  background-color: #fff;
+  color: #474787;
+  padding-left: 24px;
 }
 
 @font-face {

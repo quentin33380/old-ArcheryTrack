@@ -64,6 +64,54 @@ $colors: (
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                padding: 0;
+                width: 90%;
+                margin: 0 auto;
+                .client-info{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #fff;
+                    color: $primary-color;
+                    border-radius: 8px;
+                    padding: 20px;
+                    width: 80%;
+                    margin: 0 auto;
+                    .identity{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 8px;
+                        div{
+                            position: relative;
+                            .profile_link{
+                                background-color: $primary-color;
+                                border: 2px solid $primary-color;
+                                color: white;
+                                width: 16px;
+                                height: 16px;
+                                padding: 5px;
+                                border-radius: 6px;
+                                position: absolute;
+                                top: -12px;
+                                left: -12px;
+                                transition: all 300ms ease-in-out;
+                                &:hover{
+                                    background-color: white;
+                                    transform: scale(1.05);
+                                    color: $primary-color;
+                                }
+                            }
+                            img{
+                                border-radius: 6px;
+                                border: 1px solid $primary-color;
+                            }
+                        }
+                    }
+                    ul{
+                        padding: 0;
+                    }
+
+                }
                 .submenu {
                     padding-top: 5px;
                     padding-left: 10px;
@@ -113,45 +161,6 @@ $colors: (
                 justify-content: start;
             }
         }
-        .client-info{
-            background-color: #fff;
-            border-radius: 18px;
-            padding: 32px !important;
-            color: $primary-color;
-            border: solid 2px $primary-color;
-            border: soid 2px $secondary-color;
-            text-align: center;
-            @media screen and (min-width: $lg) {
-                width: 40%;
-            }
-            @media screen and (min-width: $xl) {
-                width: 30%;
-            }
-            .identity{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-
-                gap:32px;
-                padding-bottom: 8px;
-                @media screen and (min-width: $lg) {
-                    justify-content: initial;
-                }
-                .role{
-                    color: #B3B3B3;
-                }
-                img{
-                    border-radius: 100%;
-                    border: 1px solid $primary-color;
-                }
-            }
-            a{
-                background-color: $primary-color;
-                border-radius: 8px;
-                padding: 4px 6px;
-                display: inline-block;
-            }
-        }
         .section-form{
             display: flex;
             flex-direction: column;
@@ -163,11 +172,11 @@ $colors: (
             &>div{
                 position: relative;
                 background-color: #fff;
-                padding: 32px;
+                padding: 40px 32px 32px;
                 border-radius: 16px;
                 display: flex;
-                flex-direction: column;
                 gap: 32px;
+                flex-direction: column;
                 .section-title{
                     color: white;
                     background-color: $secondary-color;
@@ -197,7 +206,7 @@ $colors: (
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    gap: 18px;
+                    gap: 32px;
                     @media screen and (min-width: $lg) {
                         flex-direction: row;
                         align-items: center;
@@ -278,6 +287,12 @@ $colors: (
                                 }
                             }
                         }
+                    }
+                }
+                .progression-section:first-of-type{
+                    padding-bottom: 12px;
+                    @media screen and (min-width: $lg) {
+                        border-bottom: 1px solid $primary-color;
                     }
                 }
                 .bloc-image-et-input {
@@ -391,6 +406,14 @@ $colors: (
             }
         }
         #arc-profile{
+            h1{
+                margin: 0 auto 32px;
+                font-size: 1.2rem;
+                background-color: $secondary-color;
+                @media screen and (min-width: $lg) {
+                    margin: 0 0 32px;
+                }
+            }
             .svg-reglages{
                 width: 20px;
                 height: 20px;
@@ -402,8 +425,6 @@ $colors: (
                 margin: 32px 16px;
                 @media screen and (min-width: $md) {
                     margin: 32px 0px;
-                }
-                @media screen and (min-width: $md) {
                     grid-template-columns: 1fr 1fr;
                 }
                 @media screen and (min-width: $lg) {
@@ -429,6 +450,109 @@ $colors: (
                     &-activated{
                         background-color: white;
                         color: $secondary-color;
+                    }
+                }
+            }
+            #arc-config{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                .group-input-info{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    @media screen and (min-width: $lg) {
+                        align-items: start;
+                    }
+                    .input-flex{
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 16px;
+                        width: 100%;
+                        @media screen and (min-width: $lg) {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                    }
+                    .input-label{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: normal;
+                        gap: 4px;
+                        @media screen and (min-width: $lg) {
+                            label{
+                                text-align: center;
+                            }
+                        }
+                        input{
+                            border: 2px solid $primary-color;
+                            background-color: $tiertiary-color;
+                            color: white;
+                            border-radius: 100px;
+                            padding: 6px 16px;
+                            text-align: center;
+                        }
+                        &.label-select-custom p{
+                            margin: 0;
+                            @media screen and (min-width: $lg) {
+                                    text-align: center;
+                            }
+                        }
+                        .select{
+                            font-size: small;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            border: 2px solid $primary-color;
+                            background-color: $tiertiary-color;
+                            color: white;
+                            border-radius: 100px;
+                            padding: 6px 16px;
+                            text-align: center;
+                            position: relative;
+                            .label{
+                                display: flex;
+                                flex-direction: row;
+                                gap: 8px;
+                                align-items: center;
+                                justify-content: center;
+                                position: relative;
+                                cursor: pointer;
+                                .chevron{
+                                    position: absolute;
+                                    right: 5px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    transition: 300ms all;
+                                    svg{
+                                        width: 20px;
+                                    }
+                                    &-rotated{
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+                        }
+                        .options{
+                            font-size: small;
+                            cursor: pointer;
+                            background-color: $tiertiary-color;
+                            border-radius: 18px;
+                            margin: 0;
+                            padding: 0;
+                            border: 2px solid $primary-color;
+                            color: white;
+                            overflow: hidden;
+                            li{
+                                padding: 4px 16px;
+                                transition: 300ms all;
+                                &:hover{
+                                    background-color: #fff;
+                                    color: $primary-color;
+                                    padding-left: 24px;
+                                }
+                            }
+                        }
                     }
                 }
             }

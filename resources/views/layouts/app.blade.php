@@ -62,20 +62,6 @@
             </aside>
             <div class="separator-y"></div>
             <div class="main-content">
-                <section class="client-info">
-                    <div class="identity">
-                        <div>
-                            <img src="https://placehold.co/60x60" alt="">
-                        </div>
-                        <div>
-                            <li class="name-user">{{Auth::user()->name}}</li>
-                            <li class="role">Role</li>
-                        </div>
-                    </div>
-                    <div>
-                        <x-nav-link link="profle" route="{{'profile'}}">Modifier mes informations personnelles</x-nav-link>
-                    </div>
-                </section>
                 {{ $slot }}
 
 

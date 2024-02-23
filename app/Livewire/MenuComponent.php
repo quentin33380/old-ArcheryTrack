@@ -6,6 +6,7 @@ use App\Models\Arcs;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 
 class MenuComponent extends Component
 {
@@ -31,6 +32,11 @@ class MenuComponent extends Component
 
 
         $this->sousMenus[] = ['link' => route('arcs.profile'), 'nom' => '+ Ajouter un arc'];
+    }
+
+    #[On('refresh-arcs')]
+    public function refreshArc(){
+        $this->loadArcs();
     }
 
     public function ajouterArc()

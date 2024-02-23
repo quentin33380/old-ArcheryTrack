@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable();
-            $table->enum('type', ['recurve', 'compound', 'longbow', 'crossbow'])->nullable();
+            $table->enum('type', ['poulie', 'classique','nu', 'longbow', 'barbow', 'poulie-nu'])->nullable();
             $table->integer('puissance')->nullable();
             $table->string('viseur_marque')->nullable();
             $table->unsignedInteger('viseur_distance')->nullable();

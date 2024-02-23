@@ -5,7 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\ProfileArcher;
 use Livewire\Attributes\Rule;
-use Livewire\Attributes\Locked;
 
 class FormProfileArcher extends Component
 {

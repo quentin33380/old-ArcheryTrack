@@ -18,9 +18,49 @@
         </button>
     </div>
     <section class="section-form" x-show="tab === 'info-arc'">
-        <div class="group-input-info">
+        <div>
             <div class="section-title">
                 <p>Configuration de votre arc</p>
+            </div>
+            <div class="group-input-info">
+                <div class="input-label">
+                    <label for="name">Nom de l'arc</label>
+                    <input type="text" id="name" wire:model.live.debounce.500ms="name">
+                    <x-input-error :messages="$errors->get('name')" />
+                </div>
+                <div class="input-flex">
+                    <div class="input-label label-select-custom" x-data="{ open: false, selected: {{Js::from($type ? App\Enums\TypeArc::from($type)->displayName() : 'Sélectionnez un type d\'arc')}} }">
+                        <p>Type d'arc</p>
+                        <div class="select">
+                            <div x-on:click="open = !open" class="label">
+                                <span x-text="selected"></span>
+                                <span class="chevron" x-bind:class="{'chevron-rotated': open}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <ul
+                            x-show="open"
+                            x-on:click.away="open = false"
+                            class="options"
+                            >
+                            @foreach ( App\Enums\TypeArc::cases() as $typeArc )
+                                <li x-on:click="selected = '{{ $typeArc->displayName() }}'; open = false; $wire.set('type', '{{ $typeArc->value }}')">
+                                    {{ $typeArc->displayName() }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="input-label">
+                            <label for="puissance">Puissance <span class="label-info">en livres</span></label>
+                            <input type="number" wire:model.live.debounce.500ms="puissance" />
+                        </div>
+                        <x-input-error :messages="$errors->get('puissance')" />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
