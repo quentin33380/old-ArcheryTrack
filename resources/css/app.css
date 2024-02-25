@@ -141,6 +141,37 @@
 .main-client .main-content {
   width: 100%;
 }
+.main-client .main-content .input-svg {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+.main-client .main-content .input-svg div {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-client .main-content .input-svg div svg {
+  width: 30px;
+  height: 30px;
+}
+.main-client .main-content .input-svg input[type=number] + div {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-client .main-content .input-svg input[type=number] + div svg {
+  width: 30px;
+  height: 30px;
+}
 .main-client .main-content section {
   margin-bottom: 32px;
 }
@@ -537,15 +568,46 @@
   background-color: red;
   transform: scale(1.1);
 }
-.main-client .main-content #arc-profile h1 {
-  margin: 0 auto 32px;
+.main-client .main-content #arc-profile {
+  margin: 0 10px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile {
+    margin: 0 0;
+  }
+}
+.main-client .main-content #arc-profile .header-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile .header-profile {
+    flex-direction: row;
+    align-items: start;
+  }
+}
+.main-client .main-content #arc-profile .header-profile h1 {
   font-size: 1.2rem;
   background-color: #2B2B52;
 }
 @media screen and (min-width: 1024px) {
-  .main-client .main-content #arc-profile h1 {
+  .main-client .main-content #arc-profile .header-profile h1 {
     margin: 0 0 32px;
   }
+}
+.main-client .main-content #arc-profile .header-profile form .btn-delete {
+  border: 2px solid #474787;
+  background-color: #474787;
+  transition: all 300ms ease-in-out;
+  color: white;
+}
+.main-client .main-content #arc-profile .header-profile form .btn-delete:hover {
+  background-color: red;
+  transform: scale(1.1);
 }
 .main-client .main-content #arc-profile .svg-reglages {
   width: 20px;
@@ -634,6 +696,7 @@
   border-radius: 100px;
   padding: 6px 16px;
   text-align: center;
+  width: 100%;
 }
 .main-client .main-content #arc-profile #arc-config .group-input-info .input-label.label-select-custom p {
   margin: 0;
@@ -664,6 +727,15 @@
   justify-content: center;
   position: relative;
   cursor: pointer;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .input-svg {
+  width: 100%;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .input-svg .selected {
+  margin: 0 auto;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .input-svg div {
+  right: 32px;
 }
 .main-client .main-content #arc-profile #arc-config .group-input-info .input-label .select .label .chevron {
   position: absolute;
@@ -698,6 +770,9 @@
   background-color: #fff;
   color: #474787;
   padding-left: 24px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info-puissance .input-svg div {
+  right: 40px;
 }
 
 @font-face {

@@ -147,6 +147,39 @@ $colors: (
     }
     .main-content{
         width: 100%;
+        .input-svg{
+            position: relative;
+            display: flex;
+            gap: 8px;
+            div {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                svg{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            input[type=number]{
+                +div {
+                    position: absolute;
+                    right: 40px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    svg{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
         section{
             margin-bottom: 32px;
         }
@@ -406,14 +439,40 @@ $colors: (
             }
         }
         #arc-profile{
-            h1{
-                margin: 0 auto 32px;
-                font-size: 1.2rem;
-                background-color: $secondary-color;
+            margin: 0 10px;
+            @media screen and (min-width: $lg) {
+                margin: 0 0;
+            }
+            .header-profile{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin: 0 0 32px;
+                align-items: center;
+                justify-content: space-between;
                 @media screen and (min-width: $lg) {
-                    margin: 0 0 32px;
+                    flex-direction: row;
+                    align-items: start;
+                }
+                h1{
+                    font-size: 1.2rem;
+                    background-color: $secondary-color;
+                    @media screen and (min-width: $lg) {
+                        margin: 0 0 32px;
+                    }
+                }
+                form .btn-delete{
+                    border: 2px solid $primary-color;
+                    background-color: $primary-color;
+                    transition: all 300ms ease-in-out;
+                    color: white;
+                    &:hover{
+                        background-color: red;
+                        transform: scale(1.1);
+                    }
                 }
             }
+
             .svg-reglages{
                 width: 20px;
                 height: 20px;
@@ -483,6 +542,7 @@ $colors: (
                                 text-align: center;
                             }
                         }
+
                         input{
                             border: 2px solid $primary-color;
                             background-color: $tiertiary-color;
@@ -490,6 +550,7 @@ $colors: (
                             border-radius: 100px;
                             padding: 6px 16px;
                             text-align: center;
+                            width: 100%;
                         }
                         &.label-select-custom p{
                             margin: 0;
@@ -517,6 +578,15 @@ $colors: (
                                 justify-content: center;
                                 position: relative;
                                 cursor: pointer;
+                                .input-svg{
+                                    width: 100%;
+                                    .selected{
+                                        margin: 0 auto;
+                                    }
+                                    div {
+                                        right: 32px;
+                                    }
+                                }
                                 .chevron{
                                     position: absolute;
                                     right: 5px;
@@ -551,6 +621,13 @@ $colors: (
                                     color: $primary-color;
                                     padding-left: 24px;
                                 }
+                            }
+                        }
+                    }
+                    &-puissance{
+                        .input-svg{
+                            div {
+                                right: 40px;
                             }
                         }
                     }

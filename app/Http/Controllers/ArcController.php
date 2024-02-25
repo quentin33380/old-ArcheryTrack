@@ -8,6 +8,7 @@ use App\Models\Arcs;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ArcController extends Controller
 {
@@ -34,5 +35,14 @@ class ArcController extends Controller
         return view('arcs.index', compact('arc'));
     }
 
+    public function destroy(Arcs $arc)
+    {
+        if (Auth::id() === $arc->user_id) {
+            $arc->delete();
+            return redirect()->route('dashboard')->with('success', 'Arc supprimé avec succès.');
+        } else {
+            return back()->with('error', 'Vous n\'avez pas la permission de supprimer cet arc.');
+        }
+    }
 }
 

@@ -17,6 +17,8 @@ class FormProfileArcher extends Component
     #[Rule('numeric|min:0')]
     public $elongate;
 
+    public $inputModified = [];
+
     public function mount()
     {
         $user_id = request()->user()->id;
@@ -29,8 +31,9 @@ class FormProfileArcher extends Component
         }
     }
 
-    public function updated()
+    public function updated($propertyName)
     {
+        $this->inputModified[$propertyName] = true;
         $this->saveProfile();
     }
 

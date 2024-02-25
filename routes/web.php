@@ -43,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     ->group(function () {
         Route::get('view/{slug}', 'index')->name('index');
         Route::get('create', 'createProfile')->name('profile');
+        Route::delete('/arcs/{arc}','destroy')->name('destroy');
     });
 });
 

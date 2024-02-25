@@ -1,6 +1,13 @@
 <x-app-layout>
     <div id="arc-profile">
-        <h1 class="purple-pill">{{ $arc->name }}</h1>
+        <div class="header-profile">
+            <h1 class="purple-pill">{{ $arc->name }}</h1>
+            <form action="{{ route('arcs.destroy', $arc->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn-delete">Supprimer le profil d'arc</button>
+            </form>
+        </div>
         <div>
             <section id="arc-config">
                 <h2 class="purple-pill">Réglages simples</h2>

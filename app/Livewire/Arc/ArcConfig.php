@@ -5,17 +5,20 @@ namespace App\Livewire\Arc;
 use App\Models\Arcs;
 use App\Enums\TypeArc;
 use Livewire\Component;
-use Livewire\Attributes\Rule;
 use Mockery\Matcher\Type;
+use Livewire\Attributes\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ArcConfig extends Component
 {
     public $type;
     public $arcId;
-    #[Rule('numeric|min:0')]
+    #[Rule('nullable|numeric|min:0')]
     public $puissance;
     #[Rule('required')]
     public $name;
+
+    public $inputModified = [];
 
     public function mount($arc_id)
     {
@@ -48,12 +51,26 @@ class ArcConfig extends Component
                 'name',
             ])
         );
+
+        $this->inputModified = array_fill_keys(array_keys($this->inputModified), true);
+
         $this->dispatch('refresh-arcs', ['arc_id' => $this->arcId, 'name' => $this->name]);
     }
 
-    public function updated()
+    public function updated($propertyName, $value)
     {
+        $this->inputModified[$propertyName] = true;
+        $this->validate();
         $this->saveArc();
+    }
+
+    public function deleteArc($arcId)
+    {
+        $arc = Arcs::find($arcId);
+        if ($arc && Auth::id() === $arc->user_id) {
+            $arc->delete();
+            $this->emit('arcDeleted');
+        }
     }
 
     public function render()
