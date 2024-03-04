@@ -13,8 +13,6 @@ class Arcs extends Model
         'type',
         'puissance',
         'viseur_marque',
-        'viseur_distance',
-        'viseur_reglage',
         'poignee_marque',
         'poignee_dimensions',
         'branche_marque',
@@ -34,5 +32,10 @@ class Arcs extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function reglages()
+    {
+        return $this->hasMany(ReglageViseur::class);
     }
 }

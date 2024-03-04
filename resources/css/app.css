@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /*  variable mediaquery  */
+* {
+  box-sizing: border-box;
+}
+
 /*==========================================
                             main style
 ===========================================*/
@@ -85,11 +89,11 @@
 }
 .main-client aside .client-nav > ul .client-info .identity div .profile_link {
   background-color: #474787;
-  border: 2px solid #474787;
+  border: 1px solid #474787;
   color: white;
-  width: 16px;
-  height: 16px;
-  padding: 5px;
+  width: 25px;
+  height: 25px;
+  padding: 1px;
   border-radius: 6px;
   position: absolute;
   top: -12px;
@@ -773,6 +777,94 @@
 }
 .main-client .main-content #arc-profile #arc-config .group-input-info-puissance .input-svg div {
   right: 40px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input {
+  width: 100%;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input form {
+  padding-bottom: 10px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages .entete-tableau {
+  color: white;
+  background-color: #2B2B52;
+  border-radius: 100px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages .entete-tableau {
+    width: fit-content;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages .entete-tableau p {
+  padding: 8px 18px;
+  margin: 0;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages .entete-tableau p {
+    padding: 8px 64px;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table thead tr {
+  border-bottom: 2px solid #474787;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table thead tr th {
+  text-align: center;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table thead tr th:not(:last-of-type) {
+  border-right: 2px solid #474787;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table tbody tr:not(:last-of-type) {
+  border-bottom: 2px solid #474787;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table tbody td {
+  text-align: center;
+  padding: 4px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .tableau-reglages table tbody td:not(:last-of-type) {
+  border-right: 2px solid #474787;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .input-group {
+    flex-direction: row;
+    align-items: end;
+  }
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .input-group .input-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input .input-group .input-label input {
+  border: 2px solid #474787;
+  background-color: #a2a2f8;
+  color: white;
+  border-radius: 100px;
+  padding: 6px 16px;
+  text-align: center;
+  width: 100%;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input button {
+  border: 2px solid #474787;
+  background-color: #474787;
+  transition: all 300ms ease-in-out;
+  color: white;
+}
+.main-client .main-content #arc-profile #arc-config .group-input-info .tableau-input button:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+  color: #474787;
 }
 
 @font-face {

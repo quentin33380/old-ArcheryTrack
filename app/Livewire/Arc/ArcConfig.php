@@ -17,7 +17,7 @@ class ArcConfig extends Component
     public $puissance;
     #[Rule('required')]
     public $name;
-
+    public $viseur_marque;
     public $inputModified = [];
 
     public function mount($arc_id)
@@ -28,8 +28,7 @@ class ArcConfig extends Component
             $this->type = $arc->type;
             $this->puissance = $arc->puissance;
             $this->name = $arc->name;
-        }else{
-            $this->type = '';
+            $this->viseur_marque = $arc->viseur_marque;
         }
     }
 
@@ -49,6 +48,7 @@ class ArcConfig extends Component
                 'type',
                 'puissance',
                 'name',
+                'viseur_marque',
             ])
         );
 
