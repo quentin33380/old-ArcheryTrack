@@ -682,6 +682,7 @@ input{
                 }
             }
         }
+
     }
 }
 
@@ -753,6 +754,7 @@ input{
                 color: $primary-color;
                 font-weight: 600;
                 border: 2px solid $secondary-color;
+                cursor: pointer;
                 &:hover {
                     background-color: $primary-color;
                     border: solid 2px white;

@@ -43,7 +43,7 @@
                 <div class="radio-input">
                     <div class="input-label">
                         <input type="radio" id="eye_director" wire:model.live.debounce.250ms="eye_director" value="0" {{ $eye_director == false ? 'checked' : '' }}>
-                        <label for="eye_director">Droite</label>
+                        <label for="eye_director">Droit</label>
                     </div>
                     <div class="input-label">
                         <input type="radio" id="eye_director_left" wire:model.live.debounce.250ms="eye_director" value="1" {{ $eye_director == true ? 'checked' : '' }}>

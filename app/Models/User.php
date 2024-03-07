@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Arcs::class, 'user_id');
     }
+
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
+    public function hasAnyRole($roles)
+    {
+        return in_array($this->role, $roles);
+    }
 }

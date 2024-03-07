@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reglage_viseur', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('arc_id');
-            $table->foreign('arc_id')->references('id')->on('arcs')->onDelete('cascade');
-            $table->integer('distance');
-            $table->decimal('reglage', 8,2);
+            $table->string('title');
+            $table->text('content');
+            $table->string('image')->nullable();
+            $table->string('source_url')->nullable();
+            $table->json('categories')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reglage_viseur');
+        Schema::dropIfExists('articles');
     }
 };

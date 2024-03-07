@@ -5,13 +5,13 @@
         <div class="input-group">
             <div class="input-label">
                 <label for="distance">Distance en mètre</label>
-                <input type="number" wire:model.lazy="distance" placeholder="Distance" step="0.01">
+                <input type="number" wire:model="distance" step="1" min="0">
             </div>
             <div class="input-label">
                 <label for="reglage">Réglage</label>
-                <input type="number" wire:model.lazy="reglage" placeholder="Réglage" step="0.01">
+                <input type="number" wire:model="reglage" step="0.01" min="0">
             </div>
-            <button type="submit">+ Ajouter</button>
+            <button type="submit">+&nbsp;Ajouter</button>
         </div>
         @error('distance') <span class="error">{{ $message }}</span> @enderror
         @error('reglage') <span class="error">{{ $message }}</span> @enderror

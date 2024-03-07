@@ -2,11 +2,11 @@
 
 
 $colors: (
-  'white': #ffffff,
-  'black': #000000,
-  'blue': #0085FF,
-  'red': #ff0000,
-  'yellow': #FFD700
+    'white': #ffffff,
+    'black': #000000,
+    'blue': #0085FF,
+    'red': #ff0000,
+    'yellow': #FFD700
 );
 
 /*==========================================
@@ -32,6 +32,7 @@ $colors: (
         border-radius: 100px;
         transition: 300ms all;
         cursor: pointer;
+        font-size: 1rem;
     }
     .purple-pill{
         color: white;
@@ -49,6 +50,9 @@ $colors: (
         background-color: $primary-color;
         padding: 16px;
         border-radius: 18px;
+        @media screen and (min-width: $lg) {
+            min-height: 100vh;
+        }
         .client-nav{
             color: white;
             display: flex;
@@ -716,6 +720,171 @@ $colors: (
                                 color: $primary-color;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    .pas-vu{
+        display: none;
+    }
+    .admin{
+        display: inline-block;
+    }
+
+    #gestion-users{
+        background-color: $primary-color;
+        border-radius: 18px;
+        padding: 32px;
+        .tableau-users{
+            position: relative;
+            background-color: #fff;
+            padding: 32px;
+            border-radius: 16px;
+            .section-title{
+                color: white;
+                background-color: $secondary-color;
+                position: absolute;
+                border-radius: 100px;
+                left: 50%;
+                top: 0;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+                box-shadow: 0px 5px 3px  rgba(0, 0, 0, 0.2);
+                @media screen and (min-width: $lg) {
+                    left: 25px;
+                    transform: translate(0%, 0%);
+                    top: -20px;
+                    width: initial;
+                }
+                p{
+                    padding: 8px 18px;
+                    @media screen and (min-width: $lg) {
+                        padding:8px 64px;
+                    }
+                    margin: 0;
+                }
+            }
+            .tableau{
+                overflow-x: scroll;
+                padding: 0px 32px 8px 0px;
+                @media screen and (min-width: $md) {
+                    padding: 0px;
+                }
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                border: 2px solid $primary-color;
+                thead tr{
+                    border-bottom: 2px solid $primary-color;
+                    th{
+                        padding: 16px;
+                        text-align: center;
+                        &:not(:last-of-type){
+                            border-right: 2px solid $primary-color;
+                        }
+                    }
+                }
+                tbody{
+                    tr:not(:last-of-type){
+                        border-bottom: 2px solid $primary-color;
+                    }
+                    td{
+                        text-align: center;
+                        padding: 4px;
+                        &:not(:last-of-type){
+                            border-right: 2px solid $primary-color;
+                        }
+                        &:last-of-type
+                        {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            button{
+                                border: 2px solid $primary-color;
+                                background-color: $primary-color;
+                                transition: all 300ms ease-in-out;
+                                color: white;
+                                &:hover{
+                                    background-color: #fff;
+                                    transform: scale(1.05);
+                                    color: white;
+                                    background-color: red;
+                                }
+                            }
+                            a{
+                                border: 2px solid $primary-color;
+                                background-color: $primary-color;
+                                transition: all 300ms ease-in-out;
+                                color: white;
+                                padding: 6px 16px;
+                                border-radius:  100px;
+                                &:hover{
+                                    background-color: #fff;
+                                    transform: scale(1.05);
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                input{
+                    border: 2px solid $primary-color;
+                    color: $primary-color;
+                }
+                button{
+                    border: 2px solid $primary-color;
+                    background-color: $primary-color;
+                    transition: all 300ms ease-in-out;
+                    color: white;
+                    padding: 6px 32px;
+                    width: fit-content;
+                    &:hover{
+                        background-color: #fff;
+                        transform: scale(1.03);
+                        color: $primary-color;
+                    }
+                }
+                select{
+                    border: 2px solid $primary-color;
+                    color: $primary-color;
+                    border-radius: 8px;
+                    padding: 5px;
+                    background-color: white;
+                    cursor: pointer;
+                    position: relative;
+                    option{
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+            .ajout-users{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                align-items: end;
+                justify-content: end;
+                a{
+                    background-color: $primary-color;
+                    border: 2px solid $primary-color;
+                    border-bottom: none;
+                    padding: 8px 16px;
+                    border-radius: 8px 8px 0px 0px;
+                    transition: all 300ms ease-in-out;
+                    &:hover{
+                        background-color: #fff;
+                        color: $primary-color;
+                        padding: 8px 20px;
                     }
                 }
             }

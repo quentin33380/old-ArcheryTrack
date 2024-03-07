@@ -4,6 +4,8 @@ use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,31 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::get('create', 'createProfile')->name('profile');
         Route::delete('/arcs/{arc}','destroy')->name('destroy');
     });
+});
+
+Route::middleware(['auth', 'verified', 'role:admin,redacteur'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+
+    Route::resource('users', UserController::class)->names([
+        'index' => 'admin.users.index',
+        'create' => 'admin.users.create',
+        'store' => 'admin.users.store',
+        'edit' => 'admin.users.edit',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.destroy',
+    ]);
+
+    Route::resource('articles', ArticlesController::class)->names([
+        'index' => 'admin.articles.index',
+        'create' => 'admin.articles.create',
+        'store' => 'admin.articles.store',
+        'edit' => 'admin.articles.edit',
+        'update' => 'admin.articles.update',
+        'destroy' => 'admin.articles.destroy',
+    ]);
 });
 
 require __DIR__.'/auth.php';

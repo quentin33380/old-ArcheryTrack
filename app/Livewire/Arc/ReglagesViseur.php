@@ -35,6 +35,8 @@ class ReglagesViseur extends Component
             'reglage' => 'numeric|between:0,99.99',
         ]);
 
+        // dd($this->arcId, $this->distance, $this->reglage);
+
         ReglageViseur::create([
             'arc_id' => $this->arcId,
             'distance' => $this->distance ?? 0,
