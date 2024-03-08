@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Articles extends Model
+class Article extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,10 @@ class Articles extends Model
         'content',
         'image',
         'source_url',
-        'categories'
     ];
 
-    protected $casts = [
-        'categories' => 'array',
-    ];
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'article_category');
+    }
 }

@@ -1,38 +1,28 @@
 <x-admin-layout>
-    <section id="ajout-article">
-        <h1>Ajouter un nouvel article</h1>
-        <form method="POST" action="{{ route('admin.articles.store') }}" enctype="multipart/form-data">
-            @csrf
-            <div>
-                <label for="title">Titre</label>
-                <input type="text" id="title" name="title" required>
-            </div>
+    <form method="POST" action="{{ route('admin.articles.store') }}" enctype="multipart/form-data">
+        @csrf
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" required>
 
-            <div>
-                <label for="content">Contenu</label>
-                <textarea id="content" name="content" required></textarea>
-            </div>
+        <label for="content">Contenu :</label>
+        <textarea id="content" name="content" required></textarea>
 
-            <div>
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image">
-            </div>
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image">
 
-            <div>
-                <label for="source_url">Lien source</label>
-                <input type="url" id="source_url" name="source_url">
-            </div>
+        <label for="source_url">URL Source :</label>
+        <input type="url" id="source_url" name="source_url">
 
-            <div>
-                <label for="categories">Catégories</label>
-                <select id="categories" name="categories[]" multiple>
-                    <option value="Type d'arc">Type d'arc</option>
-                    <option value="Expérience">Expérience</option>
-                    <option value="Type de tir">Type de tir</option>
-                </select>
-            </div>
+        <label for="categories">Catégories :</label>
+        <select name="categories[]" id="categories" multiple>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
 
-            <button type="submit">Créer l'article</button>
-        </form>
-    </section>
+        <label for="new_category">Ajouter une nouvelle catégorie :</label>
+        <input type="text" id="new_category" name="new_category">
+
+        <button type="submit">Créer</button>
+    </form>
 </x-admin-layout>

@@ -878,18 +878,18 @@
 .main-client .admin {
   display: inline-block;
 }
-.main-client #gestion-users {
+.main-client #gestion-users, .main-client #gestion-articles {
   background-color: #474787;
   border-radius: 18px;
   padding: 32px;
 }
-.main-client #gestion-users .tableau-users {
+.main-client #gestion-users .tableau-users, .main-client #gestion-users .tableau-articles, .main-client #gestion-articles .tableau-users, .main-client #gestion-articles .tableau-articles {
   position: relative;
   background-color: #fff;
   padding: 32px;
   border-radius: 16px;
 }
-.main-client #gestion-users .tableau-users .section-title {
+.main-client #gestion-users .tableau-users .section-title, .main-client #gestion-users .tableau-articles .section-title, .main-client #gestion-articles .tableau-users .section-title, .main-client #gestion-articles .tableau-articles .section-title {
   color: white;
   background-color: #2B2B52;
   position: absolute;
@@ -902,76 +902,76 @@
   box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2);
 }
 @media screen and (min-width: 1024px) {
-  .main-client #gestion-users .tableau-users .section-title {
+  .main-client #gestion-users .tableau-users .section-title, .main-client #gestion-users .tableau-articles .section-title, .main-client #gestion-articles .tableau-users .section-title, .main-client #gestion-articles .tableau-articles .section-title {
     left: 25px;
     transform: translate(0%, 0%);
     top: -20px;
     width: initial;
   }
 }
-.main-client #gestion-users .tableau-users .section-title p {
+.main-client #gestion-users .tableau-users .section-title p, .main-client #gestion-users .tableau-articles .section-title p, .main-client #gestion-articles .tableau-users .section-title p, .main-client #gestion-articles .tableau-articles .section-title p {
   padding: 8px 18px;
   margin: 0;
 }
 @media screen and (min-width: 1024px) {
-  .main-client #gestion-users .tableau-users .section-title p {
+  .main-client #gestion-users .tableau-users .section-title p, .main-client #gestion-users .tableau-articles .section-title p, .main-client #gestion-articles .tableau-users .section-title p, .main-client #gestion-articles .tableau-articles .section-title p {
     padding: 8px 64px;
   }
 }
-.main-client #gestion-users .tableau-users .tableau {
+.main-client #gestion-users .tableau-users .tableau, .main-client #gestion-users .tableau-articles .tableau, .main-client #gestion-articles .tableau-users .tableau, .main-client #gestion-articles .tableau-articles .tableau {
   overflow-x: scroll;
   padding: 0px 32px 8px 0px;
 }
 @media screen and (min-width: 768px) {
-  .main-client #gestion-users .tableau-users .tableau {
+  .main-client #gestion-users .tableau-users .tableau, .main-client #gestion-users .tableau-articles .tableau, .main-client #gestion-articles .tableau-users .tableau, .main-client #gestion-articles .tableau-articles .tableau {
     padding: 0px;
   }
 }
-.main-client #gestion-users .tableau-users table {
+.main-client #gestion-users .tableau-users table, .main-client #gestion-users .tableau-articles table, .main-client #gestion-articles .tableau-users table, .main-client #gestion-articles .tableau-articles table {
   width: 100%;
   border-collapse: collapse;
   border: 2px solid #474787;
 }
-.main-client #gestion-users .tableau-users table thead tr {
+.main-client #gestion-users .tableau-users table thead tr, .main-client #gestion-users .tableau-articles table thead tr, .main-client #gestion-articles .tableau-users table thead tr, .main-client #gestion-articles .tableau-articles table thead tr {
   border-bottom: 2px solid #474787;
 }
-.main-client #gestion-users .tableau-users table thead tr th {
+.main-client #gestion-users .tableau-users table thead tr th, .main-client #gestion-users .tableau-articles table thead tr th, .main-client #gestion-articles .tableau-users table thead tr th, .main-client #gestion-articles .tableau-articles table thead tr th {
   padding: 16px;
   text-align: center;
 }
-.main-client #gestion-users .tableau-users table thead tr th:not(:last-of-type) {
+.main-client #gestion-users .tableau-users table thead tr th:not(:last-of-type), .main-client #gestion-users .tableau-articles table thead tr th:not(:last-of-type), .main-client #gestion-articles .tableau-users table thead tr th:not(:last-of-type), .main-client #gestion-articles .tableau-articles table thead tr th:not(:last-of-type) {
   border-right: 2px solid #474787;
 }
-.main-client #gestion-users .tableau-users table tbody tr:not(:last-of-type) {
+.main-client #gestion-users .tableau-users table tbody tr:not(:last-of-type), .main-client #gestion-users .tableau-articles table tbody tr:not(:last-of-type), .main-client #gestion-articles .tableau-users table tbody tr:not(:last-of-type), .main-client #gestion-articles .tableau-articles table tbody tr:not(:last-of-type) {
   border-bottom: 2px solid #474787;
 }
-.main-client #gestion-users .tableau-users table tbody td {
+.main-client #gestion-users .tableau-users table tbody td, .main-client #gestion-users .tableau-articles table tbody td, .main-client #gestion-articles .tableau-users table tbody td, .main-client #gestion-articles .tableau-articles table tbody td {
   text-align: center;
   padding: 4px;
 }
-.main-client #gestion-users .tableau-users table tbody td:not(:last-of-type) {
+.main-client #gestion-users .tableau-users table tbody td:not(:last-of-type), .main-client #gestion-users .tableau-articles table tbody td:not(:last-of-type), .main-client #gestion-articles .tableau-users table tbody td:not(:last-of-type), .main-client #gestion-articles .tableau-articles table tbody td:not(:last-of-type) {
   border-right: 2px solid #474787;
 }
-.main-client #gestion-users .tableau-users table tbody td:last-of-type {
+.main-client #gestion-users .tableau-users table tbody td:last-of-type, .main-client #gestion-users .tableau-articles table tbody td:last-of-type, .main-client #gestion-articles .tableau-users table tbody td:last-of-type, .main-client #gestion-articles .tableau-articles table tbody td:last-of-type {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
-.main-client #gestion-users .tableau-users table tbody td:last-of-type button {
+.main-client #gestion-users .tableau-users table tbody td:last-of-type button, .main-client #gestion-users .tableau-articles table tbody td:last-of-type button, .main-client #gestion-articles .tableau-users table tbody td:last-of-type button, .main-client #gestion-articles .tableau-articles table tbody td:last-of-type button {
   border: 2px solid #474787;
   background-color: #474787;
   transition: all 300ms ease-in-out;
   color: white;
 }
-.main-client #gestion-users .tableau-users table tbody td:last-of-type button:hover {
+.main-client #gestion-users .tableau-users table tbody td:last-of-type button:hover, .main-client #gestion-users .tableau-articles table tbody td:last-of-type button:hover, .main-client #gestion-articles .tableau-users table tbody td:last-of-type button:hover, .main-client #gestion-articles .tableau-articles table tbody td:last-of-type button:hover {
   background-color: #fff;
   transform: scale(1.05);
   color: white;
   background-color: red;
 }
-.main-client #gestion-users .tableau-users table tbody td:last-of-type a {
+.main-client #gestion-users .tableau-users table tbody td:last-of-type a, .main-client #gestion-users .tableau-articles table tbody td:last-of-type a, .main-client #gestion-articles .tableau-users table tbody td:last-of-type a, .main-client #gestion-articles .tableau-articles table tbody td:last-of-type a {
   border: 2px solid #474787;
   background-color: #474787;
   transition: all 300ms ease-in-out;
@@ -979,21 +979,31 @@
   padding: 6px 16px;
   border-radius: 100px;
 }
-.main-client #gestion-users .tableau-users table tbody td:last-of-type a:hover {
+.main-client #gestion-users .tableau-users table tbody td:last-of-type a:hover, .main-client #gestion-users .tableau-articles table tbody td:last-of-type a:hover, .main-client #gestion-articles .tableau-users table tbody td:last-of-type a:hover, .main-client #gestion-articles .tableau-articles table tbody td:last-of-type a:hover {
   background-color: #fff;
   transform: scale(1.05);
   color: #474787;
 }
-.main-client #gestion-users .tableau-users form {
+.main-client #gestion-users .tableau-users table tbody td.td-action, .main-client #gestion-users .tableau-articles table tbody td.td-action, .main-client #gestion-articles .tableau-users table tbody td.td-action, .main-client #gestion-articles .tableau-articles table tbody td.td-action {
+  display: table-cell;
+}
+.main-client #gestion-users .tableau-users table tbody td.td-action div, .main-client #gestion-users .tableau-articles table tbody td.td-action div, .main-client #gestion-articles .tableau-users table tbody td.td-action div, .main-client #gestion-articles .tableau-articles table tbody td.td-action div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.main-client #gestion-users .tableau-users form, .main-client #gestion-users .tableau-articles form, .main-client #gestion-articles .tableau-users form, .main-client #gestion-articles .tableau-articles form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.main-client #gestion-users .tableau-users form input {
+.main-client #gestion-users .tableau-users form input, .main-client #gestion-users .tableau-articles form input, .main-client #gestion-articles .tableau-users form input, .main-client #gestion-articles .tableau-articles form input {
   border: 2px solid #474787;
   color: #474787;
 }
-.main-client #gestion-users .tableau-users form button {
+.main-client #gestion-users .tableau-users form button, .main-client #gestion-users .tableau-articles form button, .main-client #gestion-articles .tableau-users form button, .main-client #gestion-articles .tableau-articles form button {
   border: 2px solid #474787;
   background-color: #474787;
   transition: all 300ms ease-in-out;
@@ -1001,12 +1011,12 @@
   padding: 6px 32px;
   width: fit-content;
 }
-.main-client #gestion-users .tableau-users form button:hover {
+.main-client #gestion-users .tableau-users form button:hover, .main-client #gestion-users .tableau-articles form button:hover, .main-client #gestion-articles .tableau-users form button:hover, .main-client #gestion-articles .tableau-articles form button:hover {
   background-color: #fff;
   transform: scale(1.03);
   color: #474787;
 }
-.main-client #gestion-users .tableau-users form select {
+.main-client #gestion-users .tableau-users form select, .main-client #gestion-users .tableau-articles form select, .main-client #gestion-articles .tableau-users form select, .main-client #gestion-articles .tableau-articles form select {
   border: 2px solid #474787;
   color: #474787;
   border-radius: 8px;
@@ -1015,18 +1025,30 @@
   cursor: pointer;
   position: relative;
 }
-.main-client #gestion-users .tableau-users form select option {
+.main-client #gestion-users .tableau-users form select option, .main-client #gestion-users .tableau-articles form select option, .main-client #gestion-articles .tableau-users form select option, .main-client #gestion-articles .tableau-articles form select option {
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
 }
-.main-client #gestion-users .tableau-users .ajout-users {
+.main-client #gestion-users .tableau-users form.edit-articles div, .main-client #gestion-users .tableau-articles form.edit-articles div, .main-client #gestion-articles .tableau-users form.edit-articles div, .main-client #gestion-articles .tableau-articles form.edit-articles div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.main-client #gestion-users .tableau-users form.edit-articles div textarea, .main-client #gestion-users .tableau-articles form.edit-articles div textarea, .main-client #gestion-articles .tableau-users form.edit-articles div textarea, .main-client #gestion-articles .tableau-articles form.edit-articles div textarea {
+  border: 2px solid #474787;
+  color: #474787;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: white;
+}
+.main-client #gestion-users .tableau-users .ajout-users, .main-client #gestion-users .tableau-articles .ajout-users, .main-client #gestion-articles .tableau-users .ajout-users, .main-client #gestion-articles .tableau-articles .ajout-users {
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: end;
   justify-content: end;
 }
-.main-client #gestion-users .tableau-users .ajout-users a {
+.main-client #gestion-users .tableau-users .ajout-users a, .main-client #gestion-users .tableau-articles .ajout-users a, .main-client #gestion-articles .tableau-users .ajout-users a, .main-client #gestion-articles .tableau-articles .ajout-users a {
   background-color: #474787;
   border: 2px solid #474787;
   border-bottom: none;
@@ -1034,7 +1056,7 @@
   border-radius: 8px 8px 0px 0px;
   transition: all 300ms ease-in-out;
 }
-.main-client #gestion-users .tableau-users .ajout-users a:hover {
+.main-client #gestion-users .tableau-users .ajout-users a:hover, .main-client #gestion-users .tableau-articles .ajout-users a:hover, .main-client #gestion-articles .tableau-users .ajout-users a:hover, .main-client #gestion-articles .tableau-articles .ajout-users a:hover {
   background-color: #fff;
   color: #474787;
   padding: 8px 20px;

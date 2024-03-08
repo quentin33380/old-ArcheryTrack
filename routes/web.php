@@ -4,8 +4,8 @@ use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ Route::middleware(['auth', 'verified', 'role:admin,redacteur'])->prefix('admin')
         'destroy' => 'admin.users.destroy',
     ]);
 
-    Route::resource('articles', ArticlesController::class)->names([
+    Route::resource('articles', ArticleController::class)->names([
         'index' => 'admin.articles.index',
         'create' => 'admin.articles.create',
         'store' => 'admin.articles.store',
