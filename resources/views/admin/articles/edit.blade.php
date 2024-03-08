@@ -38,14 +38,33 @@
                     <x-input-error :messages="$errors->get('source_url')" class="mt-2" />
                 </div>
 
-                <div>
+                <div x-data="dropdown()">
                     <label for="categories">Catégories :</label>
-                    <select name="categories[]" id="categories" multiple>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" @if(in_array($category->id, $article->categories->pluck('id')->toArray())) selected @endif>{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    <x-input-error :messages="$errors->get('categories')" class="mt-2" />
+                    <div>
+                        <div>
+                            <template x-for="category in selected" :key="category.id">
+                                <span x-text="category.name"></span>
+                            </template>
+                            <select x-ref="select" style="display:none" name="categories[]" id="categories" multiple>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @if(in_array($category->id, $article->categories->pluck('id')->toArray())) selected @endif>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <div>
+                                @foreach ($categories as $category)
+                                    <div>
+                                        <input type="checkbox" @click="toggleCategory({{ $category->id }}, '{{ $category->name }}')" :checked="isSelected({{ $category->id }})">
+                                        <label>{{ $category->name }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <x-input-error :messages="$errors->get('categories')" class="mt-2" />
+                        </div>
+                    </div>
+
+                    <template x-for="category in selected" :key="category.id">
+                        <input type="hidden" :name="'categories[]'" :value="category.id">
+                    </template>
                 </div>
 
                 <div>
@@ -58,4 +77,28 @@
             </form>
         </div>
     </section>
+
+    <script>
+        function dropdown() {
+            return {
+                selected: [],
+                init() {
+                    this.selected = Array.from(this.$refs.select.options).filter(option => option.selected).map(option => ({ id: option.value, name: option.textContent }));
+                },
+                toggleCategory(id, name) {
+                    let category = this.selected.find(category => category.id == id);
+                    if (category) {
+                        this.selected = this.selected.filter(category => category.id != id);
+                    } else {
+                        this.selected.push({ id, name });
+                    }
+                },
+                isSelected(id) {
+                    return this.selected.findIndex(category => category.id == id) !== -1;
+                }
+            }
+        }
+    </script>
+
+
 </x-admin-layout>
