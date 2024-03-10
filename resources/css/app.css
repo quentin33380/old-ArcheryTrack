@@ -2016,6 +2016,8 @@ input {
 .page-article #article .purple-card img {
   border-radius: 8px;
   width: 100%;
+  min-height: 230px;
+  max-height: 230px;
 }
 .page-article #article .purple-card .card-text {
   background-color: #fff;
