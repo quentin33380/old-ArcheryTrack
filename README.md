@@ -5,6 +5,7 @@ ArcheryTrack est une plateforme dédiée aux archers de tous niveaux, offrant un
 ## Table des matières
 
 1. [Introduction](#introduction)
+2. [Prérequis](#prérequis)
 2. [Installation](#installation)
 3. [Utilisation](#utilisation)
 4. [Contributions](#contributions)
@@ -15,15 +16,31 @@ ArcheryTrack est une plateforme dédiée aux archers de tous niveaux, offrant un
 
 ArcheryTrack est conçu pour répondre aux besoins des archers, en offrant un espace centralisé pour gérer tous les aspects de leur pratique du tir à l'arc. Que vous soyez débutant ou expert, ArcheryTrack vous accompagne dans votre progression en fournissant des outils personnalisés et une communauté engagée.
 
+
+## Prérequis
+
+Avant de commencer l'installation d'ArcheryTrack, assurez-vous que votre système répond aux prérequis suivants :
+
+1. **NPM**: Assurez-vous d'avoir NPM (Node Package Manager) installé sur votre système. NPM est nécessaire pour gérer les dépendances JavaScript de votre projet. Vous pouvez l'installer en installant Node.js, qui inclut NPM. Suivez les instructions sur [nodejs.org](https://nodejs.org/) pour installer Node.js et NPM.
+
+2. **PHP**: Vérifiez que votre système dispose de PHP version 8.1 ou supérieure.
+
+3. **Composer**: Assurez-vous d'avoir Composer installé sur votre système pour gérer les dépendances PHP. Si ce n'est pas le cas, vous pouvez l'installer en suivant les instructions sur [getcomposer.org](https://getcomposer.org/).
+
+Une fois que vous avez vérifié ces prérequis, vous êtes prêt à procéder à l'installation d'ArcheryTrack.
+
 ## Installation
 
 Pour utiliser ArcheryTrack localement, suivez ces étapes :
 1. Clonez le dépôt depuis GitHub.
 2. Installez les dépendances en exécutant `npm install`.
-3. Installez les dépendances php en exécutant `composer install`
-4. Configurez votre base de données et les variables d'environnement nécessaires.
-5. Apres la configuration de la base faire un `php artisan migrate`
-6. Lancez l'application avec `npm run dev`.
+3. Installez les dépendances php en exécutant `composer install`.
+4. Dupliquer le fichier .env.exemple et renommez le en .env.
+5. Executez la commande `php artisan key:generate`.
+6. Crée votre base de donnée.
+7. Inserer votre configuration de votre base de donnée dans le .env.
+8. Apres la configuration de la base faire un `php artisan migrate`.
+9. Lancez l'application avec `npm run build`.
 
 ## Utilisation
 
