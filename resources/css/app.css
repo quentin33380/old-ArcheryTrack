@@ -984,6 +984,9 @@
   transform: scale(1.05);
   color: #474787;
 }
+.main-client #gestion-users .tableau-users table tbody td.lien-source a, .main-client #gestion-users .tableau-articles table tbody td.lien-source a, .main-client #gestion-articles .tableau-users table tbody td.lien-source a, .main-client #gestion-articles .tableau-articles table tbody td.lien-source a {
+  color: #000000;
+}
 .main-client #gestion-users .tableau-users table tbody td.td-action, .main-client #gestion-users .tableau-articles table tbody td.td-action, .main-client #gestion-articles .tableau-users table tbody td.td-action, .main-client #gestion-articles .tableau-articles table tbody td.td-action {
   display: table-cell;
 }
@@ -1029,26 +1032,32 @@
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
 }
-.main-client #gestion-users .tableau-users form.edit-articles div, .main-client #gestion-users .tableau-articles form.edit-articles div, .main-client #gestion-articles .tableau-users form.edit-articles div, .main-client #gestion-articles .tableau-articles form.edit-articles div {
+.main-client #gestion-users .tableau-users form .current-img, .main-client #gestion-users .tableau-articles form .current-img, .main-client #gestion-articles .tableau-users form .current-img, .main-client #gestion-articles .tableau-articles form .current-img {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0px;
+}
+.main-client #gestion-users .tableau-users form .textaera-label, .main-client #gestion-users .tableau-articles form .textaera-label, .main-client #gestion-articles .tableau-users form .textaera-label, .main-client #gestion-articles .tableau-articles form .textaera-label {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.main-client #gestion-users .tableau-users form.edit-articles div textarea, .main-client #gestion-users .tableau-articles form.edit-articles div textarea, .main-client #gestion-articles .tableau-users form.edit-articles div textarea, .main-client #gestion-articles .tableau-articles form.edit-articles div textarea {
+.main-client #gestion-users .tableau-users form .textaera-label textarea, .main-client #gestion-users .tableau-articles form .textaera-label textarea, .main-client #gestion-articles .tableau-users form .textaera-label textarea, .main-client #gestion-articles .tableau-articles form .textaera-label textarea {
   border: 2px solid #474787;
   color: #474787;
   border-radius: 8px;
   padding: 5px;
   background-color: white;
 }
-.main-client #gestion-users .tableau-users .ajout-users, .main-client #gestion-users .tableau-articles .ajout-users, .main-client #gestion-articles .tableau-users .ajout-users, .main-client #gestion-articles .tableau-articles .ajout-users {
+.main-client #gestion-users .tableau-users .ajout-users, .main-client #gestion-users .tableau-users .ajout-articles, .main-client #gestion-users .tableau-articles .ajout-users, .main-client #gestion-users .tableau-articles .ajout-articles, .main-client #gestion-articles .tableau-users .ajout-users, .main-client #gestion-articles .tableau-users .ajout-articles, .main-client #gestion-articles .tableau-articles .ajout-users, .main-client #gestion-articles .tableau-articles .ajout-articles {
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: end;
   justify-content: end;
 }
-.main-client #gestion-users .tableau-users .ajout-users a, .main-client #gestion-users .tableau-articles .ajout-users a, .main-client #gestion-articles .tableau-users .ajout-users a, .main-client #gestion-articles .tableau-articles .ajout-users a {
+.main-client #gestion-users .tableau-users .ajout-users a, .main-client #gestion-users .tableau-users .ajout-articles a, .main-client #gestion-users .tableau-articles .ajout-users a, .main-client #gestion-users .tableau-articles .ajout-articles a, .main-client #gestion-articles .tableau-users .ajout-users a, .main-client #gestion-articles .tableau-users .ajout-articles a, .main-client #gestion-articles .tableau-articles .ajout-users a, .main-client #gestion-articles .tableau-articles .ajout-articles a {
   background-color: #474787;
   border: 2px solid #474787;
   border-bottom: none;
@@ -1056,7 +1065,7 @@
   border-radius: 8px 8px 0px 0px;
   transition: all 300ms ease-in-out;
 }
-.main-client #gestion-users .tableau-users .ajout-users a:hover, .main-client #gestion-users .tableau-articles .ajout-users a:hover, .main-client #gestion-articles .tableau-users .ajout-users a:hover, .main-client #gestion-articles .tableau-articles .ajout-users a:hover {
+.main-client #gestion-users .tableau-users .ajout-users a:hover, .main-client #gestion-users .tableau-users .ajout-articles a:hover, .main-client #gestion-users .tableau-articles .ajout-users a:hover, .main-client #gestion-users .tableau-articles .ajout-articles a:hover, .main-client #gestion-articles .tableau-users .ajout-users a:hover, .main-client #gestion-articles .tableau-users .ajout-articles a:hover, .main-client #gestion-articles .tableau-articles .ajout-users a:hover, .main-client #gestion-articles .tableau-articles .ajout-articles a:hover {
   background-color: #fff;
   color: #474787;
   padding: 8px 20px;
@@ -1983,7 +1992,7 @@ input {
 }
 .page-article #article {
   display: grid;
-  gap: 8px;
+  gap: 16px;
   grid-template-columns: 1fr;
 }
 @media screen and (min-width: 640px) {
@@ -2018,6 +2027,7 @@ input {
   width: 100%;
   min-height: 230px;
   max-height: 230px;
+  object-fit: cover;
 }
 .page-article #article .purple-card .card-text {
   background-color: #fff;
@@ -2026,8 +2036,10 @@ input {
   color: #474787;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: start;
   gap: 8px;
+  height: 100%;
 }
 .page-article #article .purple-card .card-text a {
   border: solid 2px white;

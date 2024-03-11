@@ -875,7 +875,7 @@ input{
     }
     #article{
         display: grid;
-        gap: 8px;
+        gap: 16px;
         grid-template-columns: 1fr;
         @media screen and (min-width: $sm) {
             grid-template-columns: 1fr 1fr;
@@ -900,6 +900,7 @@ input{
                 width: 100%;
                 min-height: 230px;
                 max-height: 230px;
+                object-fit: cover;
             }
             .card-text{
                 background-color: #fff;
@@ -908,8 +909,10 @@ input{
                 color: $primary-color;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
                 align-items: start;
                 gap: 8px;
+                height: 100%;
                 a {
                     border: solid 2px white;
                     align-self: end;

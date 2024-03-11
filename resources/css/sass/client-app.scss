@@ -830,6 +830,9 @@ $colors: (
                                 }
                             }
                         }
+                        &.lien-source a{
+                            color: #000000;
+                        }
                         &.td-action{
                             display: table-cell;
                             div{
@@ -877,7 +880,13 @@ $colors: (
                         font-size: 0.9rem;
                     }
                 }
-                &.edit-articles div{
+                .current-img{
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 8px 0px;
+                }
+                .textaera-label{
                     display: flex;
                     align-items: center;
                     gap: 8px;
@@ -890,7 +899,7 @@ $colors: (
                     }
                 }
             }
-            .ajout-users{
+            .ajout-users,.ajout-articles{
                 display: flex;
                 flex-direction: column;
                 gap: 16px;

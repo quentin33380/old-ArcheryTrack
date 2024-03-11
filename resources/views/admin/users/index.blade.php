@@ -19,7 +19,7 @@
                     </thead>
                     <tbody>
                         @foreach($users as $user)
-                            @if($user->id !== auth()->user()->id) <!-- Exclure l'utilisateur actuel -->
+                            @if($user->id !== auth()->user()->id)
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>

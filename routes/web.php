@@ -4,9 +4,9 @@ use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\FrontendArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +27,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/article', function () {
-    return view('article');
-})->name('article');
+Route::get('/article', [FrontendArticleController::class, 'index'])->name('article');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -63,6 +61,16 @@ Route::middleware(['auth', 'verified', 'role:admin,redacteur'])->prefix('admin')
         'edit' => 'admin.users.edit',
         'update' => 'admin.users.update',
         'destroy' => 'admin.users.destroy',
+    ]);
+
+    //Route des articles
+    Route::resource('articles', ArticleController::class)->names([
+        'index' => 'admin.articles.index',
+        'create' => 'admin.articles.create',
+        'store' => 'admin.articles.store',
+        'edit' => 'admin.articles.edit',
+        'update' => 'admin.articles.update',
+        'destroy' => 'admin.articles.destroy',
     ]);
 
 });
