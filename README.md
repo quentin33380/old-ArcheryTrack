@@ -18,7 +18,7 @@ ArcheryTrack est conçu pour répondre aux besoins des archers, en offrant un es
 ## Installation
 
 Pour utiliser ArcheryTrack localement, suivez ces étapes :
-1. - [ ] Clonez le dépôt depuis GitHub.
+1. - [] Clonez le dépôt depuis GitHub.
 2. - [ ] Installez les dépendances en exécutant `npm install`.
 3. - [ ] Installez les dépendances php en exécutant `composer install`
 4. - [ ] Configurez votre base de données et les variables d'environnement nécessaires.
