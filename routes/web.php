@@ -4,6 +4,7 @@ use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AccueilControlleur;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\FrontendArticleController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\FrontendArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name('accueil');
+Route::get('/',[AccueilControlleur::class, 'indexArticle'])->name('accueil');
 
 Route::get('/contact', function () {
     return view('contact');

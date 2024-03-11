@@ -1564,11 +1564,16 @@ input {
 }
 #carousel-article img {
   border-radius: 8px;
+  width: 100%;
+  max-height: 230px;
+  min-height: 230px;
+  object-fit: cover;
 }
 #carousel-article .purple-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 16px;
 }
 #carousel-article .purple-card .carousel-card-text {
   background-color: #fff;
@@ -1576,8 +1581,10 @@ input {
   border-radius: 8px;
   color: #474787;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: 8px;
+  height: 100%;
 }
 #carousel-article .purple-card .carousel-card-text a {
   border: solid 2px white;
@@ -1598,11 +1605,17 @@ input {
 .splide__slide {
   border-radius: 16px !important;
 }
+.splide__arrow--prev {
+  left: 0rem !important;
+}
+.splide__arrow--next {
+  right: 0rem !important;
+}
 .splide__arrow svg {
-  fill: #fff !important;
+  fill: #a2a2f8 !important;
 }
 .splide__arrow svg:hover {
-  fill: #a2a2f8 !important;
+  fill: #2B2B52 !important;
 }
 .splide__pagination__page {
   background-color: #fff !important;

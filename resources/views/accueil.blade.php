@@ -33,19 +33,18 @@
         </section>
 
         <x-slider>
-            @for ($i = 0; $i<10; $i++)
+            @foreach ($articles as $article)
                 <li class="purple-card splide__slide">
-                    <img src="{{asset('images/placehold-carousel.png')}}" alt="">
+                    <img src="{{ asset($article->image) }}" alt="Image de l'article">
                     <div class="carousel-card-text">
-                        <h3>Lorem, ipsum.</h3>
-                        <p>
-                            Pellentesque in felis eu nunc volutpat sagittis. Suspendisse pulvinar
-                            dictum nisl et accumsan. Morbi venenatis scelerisque mattis.
-                        </p>
-                        <a href="javascript:void(0)">Voir l'article</a>
+                        <h3>{{ $article->title }}</h3>
+                        <p>{{ Str::limit($article->content, 150) }}</p>
+                        @if (!empty($article->source_url))
+                            <a href="{{ $article->source_url }}">Voir l'article</a>
+                        @endif
                     </div>
                 </li>
-            @endfor
+            @endforeach
         </x-slider>
 
         <section id="starting">
