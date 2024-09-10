@@ -1,38 +1,40 @@
 <x-admin-layout>
-    <section id="gestion-users">
+    <section id="gestion-articles">
         <div class="tableau-users">
             <div class="section-title">
                 <p>Liste des articles</p>
             </div>
-            <div class="ajout-users">
+            <div class="ajout-articles">
                 <a href="{{ route('admin.articles.create') }}">Créer un nouvel article</a>
             </div>
             <div class="tableau">
                 <table>
                     <thead>
                         <tr>
-                            <th>Titre</th>
                             <th>Image</th>
-                            <th>Categories</th>
-                            <th>Actions</th>
+                            <th>Titre</th>
+                            <th>Source</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($articles as $article)
+                        @foreach($articles as $article)
                             <tr>
-                                <td>{{ $article->title }}</td>
                                 <td>
-                                    @if ($article->image == null)
-                                        <p>Pas d'images selectionné pour cet article</p>
-                                        @else
-                                        <img src="/images/{{ $article->image }}" width="100">
+                                    @if($article->image)
+                                        <img src="{{ asset($article->image) }}" alt="Image de l'article" width="100">
+                                    @else
+                                        Pas d'image
                                     @endif
                                 </td>
-                                <td>{{ $article->categories->pluck('name')->implode(', ') }}</td>
+                                <td>{{ $article->title }}</td>
+                                <td class="lien-source">
+                                    <a href="{{ $article->source_url }}" target="_blank">{{ $article->source_url }}</a>
+                                </td>
                                 <td class="td-action">
                                     <div>
-                                        <a href="{{ route('admin.articles.edit', $article->id) }}">Éditer</a>
-                                        <form action="{{ route('admin.articles.destroy', $article->id) }}" method="POST">
+                                        <a href="{{ route('admin.articles.edit', $article) }}">Modifier</a>
+                                        <form action="{{ route('admin.articles.destroy', $article) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">Supprimer</button>

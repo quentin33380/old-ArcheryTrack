@@ -467,19 +467,26 @@ input{
     }
     img {
         border-radius: 8px;
+        width: 100%;
+        max-height: 230px;
+        min-height: 230px;
+        object-fit: cover;
     }
     .purple-card {
         display: flex;
         flex-direction: column;
         gap: 12px;
+        padding: 16px;
         .carousel-card-text {
             background-color: #fff;
             padding: 16px;
             border-radius: 8px;
             color: $primary-color;
             display: flex;
+            justify-content: space-between;
             flex-direction: column;
             gap: 8px;
+            height: 100%;
             a {
                 border: solid 2px white;
                 align-self: end;
@@ -504,10 +511,16 @@ input{
         border-radius: 16px !important;
     }
     &__arrow {
+        &--prev{
+            left:0rem !important;
+        }
+        &--next{
+            right:0rem !important;
+        }
         svg {
-            fill: #fff !important;
+            fill: $tiertiary-color !important;
             &:hover {
-                fill: $tiertiary-color !important;
+                fill: $secondary-color !important;
             }
         }
     }
@@ -875,7 +888,7 @@ input{
     }
     #article{
         display: grid;
-        gap: 8px;
+        gap: 16px;
         grid-template-columns: 1fr;
         @media screen and (min-width: $sm) {
             grid-template-columns: 1fr 1fr;
@@ -898,6 +911,9 @@ input{
             img{
                 border-radius: 8px;
                 width: 100%;
+                min-height: 230px;
+                max-height: 230px;
+                object-fit: cover;
             }
             .card-text{
                 background-color: #fff;
@@ -906,8 +922,10 @@ input{
                 color: $primary-color;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
                 align-items: start;
                 gap: 8px;
+                height: 100%;
                 a {
                     border: solid 2px white;
                     align-self: end;

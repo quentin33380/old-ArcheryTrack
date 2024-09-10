@@ -8,18 +8,9 @@ use Illuminate\Http\Request;
 
 class FrontendArticleController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $query = Article::query();
-
-        if ($request->filled('type_darc')) {
-            $query->whereHas('categories', function ($q) use ($request) {
-                $q->whereIn('name', $request->type_darc);
-            });
-        }
-
-        $articles = $query->get();
-
-        return view('articles', compact('articles'));
+        $articles = Article::all();
+        return view('article', compact('articles'));
     }
 }

@@ -4,8 +4,10 @@ use App\Models\Arcs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArcController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AccueilControlleur;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\FrontendArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +20,13 @@ use App\Http\Controllers\Admin\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name('accueil');
+Route::get('/',[AccueilControlleur::class, 'indexArticle'])->name('accueil');
 
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/article', function () {
-    return view('article');
-})->name('article');
+Route::get('/article', [FrontendArticleController::class, 'index'])->name('article');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -64,6 +62,7 @@ Route::middleware(['auth', 'verified', 'role:admin,redacteur'])->prefix('admin')
         'destroy' => 'admin.users.destroy',
     ]);
 
+    //Route des articles
     Route::resource('articles', ArticleController::class)->names([
         'index' => 'admin.articles.index',
         'create' => 'admin.articles.create',
@@ -72,6 +71,7 @@ Route::middleware(['auth', 'verified', 'role:admin,redacteur'])->prefix('admin')
         'update' => 'admin.articles.update',
         'destroy' => 'admin.articles.destroy',
     ]);
+
 });
 
 require __DIR__.'/auth.php';
